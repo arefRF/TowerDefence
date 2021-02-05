@@ -6,3 +6,11 @@
 /obj/Debug
 /Assembly-CSharp.csproj
 /CTD.sln
+
+/.vs/CTD/v16/.suo
+/.vs/CTD/v16/Browse.VC.db
+/.vs/CTD/v16/Browse.VC.opendb
+/.vs/CTD/v16/Server/sqlite3/db.lock
+/.vs/CTD/v16/Server/sqlite3/storage.ide
+/.vs/CTD/v16/Server/sqlite3/storage.ide-shm
+/.vs/CTD/v16/Server/sqlite3/storage.ide-wal
