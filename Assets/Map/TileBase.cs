@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class TileBase : MonoBehaviour
 {
-    
+    [SerializeField]
+    private TileType type_;
+
+    public Vector2Int position_;
 }
 
-public class Tile_Road
+public enum TileType
 {
-
-}
-
-public class Tile_Crystal
-{
-
-}
-
-public class Tile_Goal
-{
-
-}
-
-public class Tile_Ground
-{
-
+    Road, Crystal, Ground, Goal
 }

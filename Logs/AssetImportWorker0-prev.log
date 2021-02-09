@@ -1,0 +1,194 @@
+Using pre-set license
+Built from '2020.2/staging' branch; Version is '2020.2.3f1 (8ff31bc5bf5b) revision 9433883'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Enterprise; OS build 19042.746; Version 2009; 64bit' Language: 'en' Physical Memory: 16350 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+D:\Unity 2020.2.3f1\Unity\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/arf/repo/CTD
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+60000
+Successfully changed project path to: D:/arf/repo/CTD
+D:/arf/repo/CTD
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 30.31 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.3f1 (8ff31bc5bf5b)
+[Subsystems] Discovering subsystems at path D:/Unity 2020.2.3f1/Unity/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/arf/repo/CTD/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c81)
+    Vendor:   
+    VRAM:     1977 MB
+    Driver:   26.21.14.4120
+Initialize mono
+Mono path[0] = 'D:/Unity 2020.2.3f1/Unity/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity 2020.2.3f1/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Unity 2020.2.3f1/Unity/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56480
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity 2020.2.3f1/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002351 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 30.76 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.306 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000828 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.048 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1108 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.0 MB.
+System memory in use after: 57.1 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 1551.
+Total: 2.046300 ms (FindLiveObjects: 0.209900 ms CreateObjectMapping: 0.084500 ms MarkObjects: 1.671500 ms  DeleteObjects: 0.078500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Map/Road Tile.prefab
+  artifactKey: Guid(f191c2d435647e040a55c1ca3a45c00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Road Tile.prefab using Guid(f191c2d435647e040a55c1ca3a45c00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb5d3fc8ef332e1bca3ceaf39591a2cd') in 0.157429 seconds
+  Import took 0.159915 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.011169 seconds.
+  path: Assets/Path Finding/Graph.cs
+  artifactKey: Guid(6394d6da3fc6da14993eb5ffecb6f301) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Path Finding/Graph.cs using Guid(6394d6da3fc6da14993eb5ffecb6f301) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d594b6561d9d2e51ad4cc344346312f') in 0.013033 seconds
+  Import took 0.015950 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 96.081091 seconds.
+  path: Assets/Map/Crystal Tile.prefab
+  artifactKey: Guid(64c012a2af6515943b4e2c605c1ce07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Crystal Tile.prefab using Guid(64c012a2af6515943b4e2c605c1ce07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '989ebfc2b43fd2deb488beebf6ab909c') in 0.038210 seconds
+  Import took 0.041229 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.165696 seconds.
+  path: Assets/Map/prefabs
+  artifactKey: Guid(95e6e3c2f26e31d42b8967383dd64867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/prefabs using Guid(95e6e3c2f26e31d42b8967383dd64867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8540569052d15ece46720500a101cee') in 0.007941 seconds
+  Import took 0.010725 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.983443 seconds.
+  path: Assets/Map/prefabs/Materials
+  artifactKey: Guid(58b27a2ccd42b774da7c582d6f8f4011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/prefabs/Materials using Guid(58b27a2ccd42b774da7c582d6f8f4011) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '905dd2ac039bd059e1df9f4e20e3aa7f') in 0.018368 seconds
+  Import took 0.021454 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.597941 seconds.
+  path: Assets/Map/Prefabs
+  artifactKey: Guid(95e6e3c2f26e31d42b8967383dd64867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Prefabs using Guid(95e6e3c2f26e31d42b8967383dd64867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e23405cae317a2cd616eb9bc2095298') in 0.008784 seconds
+  Import took 0.011605 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 108.451067 seconds.
+  path: Assets/Map/Prefabs/Ground Tile.prefab
+  artifactKey: Guid(23022c271d3dd4540b85b26cee96a17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Prefabs/Ground Tile.prefab using Guid(23022c271d3dd4540b85b26cee96a17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74874d9f9ee3f31241208718ebb36c46') in 0.020959 seconds
+  Import took 0.023582 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.848367 seconds.
+  path: Assets/Map/Prefabs/Goal Tile.prefab
+  artifactKey: Guid(80d4598b8b06cda43805730c5fabca36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Prefabs/Goal Tile.prefab using Guid(80d4598b8b06cda43805730c5fabca36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3735220f0bdefafd673c5a9a0636b67f') in 0.020361 seconds
+  Import took 0.022810 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000945 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.30 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.937 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1102 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.0 MB.
+System memory in use after: 60.1 MB.
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 1561.
+Total: 2.198300 ms (FindLiveObjects: 0.204600 ms CreateObjectMapping: 0.065600 ms MarkObjects: 1.909200 ms  DeleteObjects: 0.017500 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2619.932363 seconds.
+  path: Assets/Map/Prefabs/Goal Tile.prefab
+  artifactKey: Guid(80d4598b8b06cda43805730c5fabca36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Prefabs/Goal Tile.prefab using Guid(80d4598b8b06cda43805730c5fabca36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '750eccfbae9078cea42e44185a305f15') in 0.109393 seconds
+  Import took 0.112369 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.113540 seconds.
+  path: Assets/Map/Prefabs/Crystal Tile.prefab
+  artifactKey: Guid(64c012a2af6515943b4e2c605c1ce07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Prefabs/Crystal Tile.prefab using Guid(64c012a2af6515943b4e2c605c1ce07a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7460f0e7bde021e02744092fb45238fe') in 0.037165 seconds
+  Import took 0.039677 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.660206 seconds.
+  path: Assets/Map/Prefabs/Ground Tile.prefab
+  artifactKey: Guid(23022c271d3dd4540b85b26cee96a17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Prefabs/Ground Tile.prefab using Guid(23022c271d3dd4540b85b26cee96a17a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29c6600db365daf40be7daedbbf240ee') in 0.030455 seconds
+  Import took 0.033508 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.717727 seconds.
+  path: Assets/Map/Prefabs/Road Tile.prefab
+  artifactKey: Guid(f191c2d435647e040a55c1ca3a45c00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Map/Prefabs/Road Tile.prefab using Guid(f191c2d435647e040a55c1ca3a45c00d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12eb9062a1a160c095bff4d048821f46') in 0.046913 seconds
+  Import took 0.049846 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
