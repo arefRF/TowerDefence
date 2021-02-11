@@ -14,3 +14,4 @@
 /.vs/CTD/v16/Server/sqlite3/storage.ide
 /.vs/CTD/v16/Server/sqlite3/storage.ide-shm
 /.vs/CTD/v16/Server/sqlite3/storage.ide-wal
+/Logs/*
