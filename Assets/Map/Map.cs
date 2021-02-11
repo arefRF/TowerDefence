@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using PathFinding;
 
 public class Map : MonoBehaviour
 {
@@ -22,11 +23,46 @@ public class Map : MonoBehaviour
 
     [SerializeField]
     private TileBase[] spawners_;
+    [SerializeField]
+    private TileBase[] goals_;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        edges_ = new List<Vector3Int>();
+        edges_by_tile_ = new List<Edge>();
+        node_points_ = new List<NodePoint>();
         MakeMap();
+        MakeGraphData();
+        var g = Graph.CreateGraph(nodes_, edges_.ToArray());
+        GraphTools.OperateBelmanFord(g, goal_number_, out g);
+        for(int i=0; i<node_points_.Count; i++)
+        {
+            for(int j=0; j<g.nodes_.Count; j++)
+            {
+                if(node_points_[i].number_ == g.nodes_[j].pNumber)
+                {
+                    if(node_points_[i].GetComponent<TileBase>().type_ != TileType.Goal)
+                        node_points_[i].parent_ = FindNode(g.nodes_[j].parent_.pNumber);
+                }
+            }
+        }
+
+        /*for (int i = 1; i < g.nodes_.Count; i++)
+        {
+            Debug.LogError(g.nodes_[i].pNumber + "   " + g.nodes_[i].parent_.pNumber);
+        }*/
+        //Graph.CreateGraph();
         //PrintMap();
+    }
+
+    private NodePoint FindNode(int number) 
+    {
+        for(int i=0; i< node_points_.Count; i++)
+        {
+            if (node_points_[i].number_ == number)
+                return node_points_[i];
+        }
+        return null;
     }
 
     // Update is called once per frame
@@ -123,12 +159,18 @@ public class Map : MonoBehaviour
     {
         var dirs = new Direction[] { Direction.Down, Direction.Left, Direction.Right, Direction.Up };
         var queue = new Queue<TileBase>();
-        foreach (var item in spawners_)
+        node_count_ = 0;
+        foreach (var item in goals_)
+        {
             queue.Enqueue(item);
+            //item.number_ = node_count_++;
+        }
         while(queue.Count > 0)
         {
-            int neighbor_count = 0;
             var item = queue.Dequeue();
+            if(item.number_ == -1)
+                item.number_ = node_count_++;
+            MakeTileNode(item);
             for(int i=0; i<dirs.Length; i++)
             {
                 TileBase n_tile = GetNeightborTile(item, dirs[i]);
@@ -136,16 +178,10 @@ public class Map : MonoBehaviour
                 {
                     queue.Enqueue(n_tile);
                     n_tile.is_visited_ = true;
-
-                    if (dirs[i] != item.road_exit_direction)
-                    {
-                        n_tile.road_exit_direction = dirs[i];
-                        if(neighbor_count == 0)
-                            MakeTileNode(item);
-                        neighbor_count++;
-                    }
-                    else
-                        n_tile.road_exit_direction = item.road_exit_direction;
+                    n_tile.number_ = node_count_++;
+                    var distance = (int)Vector3.Distance(item.transform.position, n_tile.transform.position);
+                    edges_.Add(new Vector3Int(item.number_, n_tile.number_, distance));
+                    edges_.Add(new Vector3Int(n_tile.number_, item.number_, distance));
                 }
             }
         }
@@ -153,7 +189,20 @@ public class Map : MonoBehaviour
 
     private void MakeTileNode(TileBase tile)
     {
-        var go = Instantiate(node_stone_, tile.transform.position, tile.transform.rotation, node_stone_parent.transform);
+        //var go = Instantiate(node_stone_, tile.transform.position, tile.transform.rotation, node_stone_parent.transform);
+        //var node_point = go.GetComponent<NodePoint>();
+        var node_point = tile.gameObject.AddComponent<NodePoint>();
+        node_point.number_ = tile.number_;
+        node_points_.Add(node_point);
+        if (tile.type_ == TileType.Spawner)
+            goal_number_ = tile.number_;
+    }
+
+    private bool IsAcceptableTile(TileType type)
+    {
+        if (type == TileType.Road || type == TileType.Spawner)
+            return true;
+        return false;
     }
 
     private TileBase GetNeightborTile(TileBase tile, Direction direction)
@@ -173,7 +222,7 @@ public class Map : MonoBehaviour
             int x = tile.position_.x, y = tile.position_.y;
         try
         {
-            if (y < tiles_[x].Length - 1 && tiles_[x][y + 1].type_ == TileType.Road)
+            if (y < tiles_[x].Length - 1 && IsAcceptableTile(tiles_[x][y + 1].type_))
                 return tiles_[x][y + 1];
             return null;
         }
@@ -182,22 +231,47 @@ public class Map : MonoBehaviour
     private TileBase GetLeftNeighbor(TileBase tile)
     {
         int x = tile.position_.x, y = tile.position_.y;
-        if (y > 0 && tiles_[x][y - 1].type_ == TileType.Road)
+        if (y > 0 && IsAcceptableTile(tiles_[x][y - 1].type_))
             return tiles_[x][y - 1];
         return null;
     }
     private TileBase GetUpNeighbor(TileBase tile)
     {
         int x = tile.position_.x, y = tile.position_.y;
-        if (x > 0 && tiles_[x - 1][y].type_ == TileType.Road)
+        if (x > 0 && IsAcceptableTile(tiles_[x - 1][y].type_))
             return tiles_[x - 1][y];
         return null;
     }
     private TileBase GetDownNeighbor(TileBase tile)
     {
         int x = tile.position_.x, y = tile.position_.y;
-        if (x < tiles_[x].Length - 1 && tiles_[x + 1][y].type_ == TileType.Road)
+        if (x < tiles_[x].Length - 1 && IsAcceptableTile(tiles_[x + 1][y].type_))
             return tiles_[x + 1][y];
         return null;
+    }
+
+    ///////////// making graph data //////////
+    private int[] nodes_;
+    List<Vector3Int> edges_;
+    List<Edge> edges_by_tile_;
+    
+    int node_count_;
+    private List<NodePoint> node_points_;
+    private int goal_number_;
+    private void MakeGraphData()
+    {
+        nodes_ = new int[node_count_];
+        for (int i = 0; i < nodes_.Length; i++)
+            nodes_[i] = node_points_[i].pNumber;
+    }
+
+    private class Edge
+    {
+        public TileBase source_, sink_;
+        public Edge(TileBase source, TileBase sink)
+        {
+            source_ = source;
+            sink_ = sink;
+        }
     }
 }
