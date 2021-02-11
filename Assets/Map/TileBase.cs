@@ -5,12 +5,21 @@ using UnityEngine;
 public class TileBase : MonoBehaviour
 {
     [SerializeField]
-    private TileType type_;
+    public TileType type_;
 
     public Vector2Int position_;
+
+    public bool is_visited_ = false;
+    public Direction road_exit_direction;
+    public bool is_node;
 }
 
 public enum TileType
 {
-    Road, Crystal, Ground, Goal
+    Road, Crystal, Ground, Goal, Spawner
+}
+
+public enum Direction
+{
+    Right,Left,Up,Down
 }
