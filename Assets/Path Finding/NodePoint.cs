@@ -6,7 +6,7 @@ using UnityEngine;
 public class NodePoint : MonoBehaviour
 {
     [SerializeField]
-    private int number_;
+    public int number_;
     public int pNumber { get { return number_; } }
 
     [SerializeField]
@@ -14,5 +14,5 @@ public class NodePoint : MonoBehaviour
     public NodePoint[] pPaths { get { return paths_; } }
 
     [SerializeField]
-    public int parent_;
+    public NodePoint parent_;
 }

@@ -6,7 +6,7 @@ public class MoveTest : MonoBehaviour
 {
 
     [SerializeField]
-    private NodePoint destination_;
+    public NodePoint destination_;
     [SerializeField]
     private float max_distance_;
     // Start is called before the first frame update
@@ -20,11 +20,11 @@ public class MoveTest : MonoBehaviour
     {
         if (DistanceTo(destination_.transform.position) <= 0)
         {
-            destination_ = NodePointManager.sSingleton.GetNextNode(destination_);
+            destination_ = destination_.parent_;
             if(destination_ == null)
             {
-                Debug.LogError("Reached destination! ", gameObject);
                 gameObject.SetActive(false);
+                Destroy(gameObject);
             }
         }
         else
