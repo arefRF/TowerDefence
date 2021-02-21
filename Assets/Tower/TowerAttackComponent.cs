@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Hive.Projectile;
 
 public class TowerAttackComponent : MonoBehaviour
 {
@@ -48,4 +49,5 @@ public class TowerAttackComponent : MonoBehaviour
     {
         target_ = EnemyManager.sSingletone.GetRandomEnemy();
     }
+
 }
