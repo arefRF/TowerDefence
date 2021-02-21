@@ -13,6 +13,7 @@ namespace Hive.Projectile
         private float delta_time_;
         private bool is_accelerating_;
         private float acceleration_direction_;
+        private Vector3 target_pos_;
 
         public void Shoot(Transform target, ProjectileDataAsset data, Vector3 direction)
         {
@@ -34,22 +35,27 @@ namespace Hive.Projectile
                 is_accelerating_ = false;
             }
         }
+        private void UpdateTargetPosition()
+        {
+            if (target_ != null)
+                target_pos_ = target_.position;
+        }
         private void UpdateDirection()
         {
-            var target_direction = (target_.position - transform.position).normalized;
+            var target_direction = (target_pos_ - transform.position).normalized;
             var rotation_value = (data_.rotation_speed_ * delta_time_) / Vector3.Angle(direction_, target_direction);
             direction_ = Vector3.Lerp(direction_, target_direction, rotation_value).normalized;
         }
         private void UpdatePosition()
         {
             var movement_value = current_speed_ * delta_time_;
-            var distance_to_target = (target_.position - transform.position).magnitude;
+            var distance_to_target = (target_pos_ - transform.position).magnitude;
             movement_value = Mathf.Min(movement_value, distance_to_target);
             transform.position += direction_ * movement_value;
         }
         private bool HitCheck()
         {
-            var distance_to_target = (target_.position - transform.position).magnitude;
+            var distance_to_target = (target_pos_ - transform.position).magnitude;
             return distance_to_target <= data_.reach_distance_;
         }
         public bool UpdateMovement(float delta_time)
@@ -57,6 +63,7 @@ namespace Hive.Projectile
             delta_time_ = delta_time;
             if (is_accelerating_)
                 UpdateSpeed();
+            UpdateTargetPosition();
             UpdateDirection();
             UpdatePosition();
             return HitCheck();
