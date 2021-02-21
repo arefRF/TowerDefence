@@ -105,8 +105,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7961584483976131319}
+  - component: {fileID: 4836481725711125835}
   - component: {fileID: 3447991229579515612}
   - component: {fileID: 5517603672000846625}
+  - component: {fileID: 1117047865399405044}
+  - component: {fileID: 7504531034362064003}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -129,6 +132,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4836481725711125835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572100530388731934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4470e55b0dbfafc4cb7a7504c3101008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3447991229579515612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +168,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f9c36d9f79dfe4fb5aac2ab476cb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage_: 1
+  attack_time_: 2
+  projectile_speed_: 10
+  time_to_next_attack_: 0
+--- !u!114 &1117047865399405044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572100530388731934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2243143e7d1f44e83c79be23c5e5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7504531034362064003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572100530388731934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9941afb6b48a1dc4fb1d90a55f2af515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab_: {fileID: 510047693677995194, guid: de7fe8002b54e0f4cab0384573c03f66, type: 3}
+  target_: {fileID: 0}
+  shoot_interval_: 0
+  data_: {fileID: 11400000, guid: b04e402d828ad384d8a8034c9d81357f, type: 2}

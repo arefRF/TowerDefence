@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ae18456bcf09d54d80c173fc5f86e1c, type: 3}
   m_Name: ProjectileData
   m_EditorClassIdentifier: 
-  starting_speed_: 100
-  target_speed_: 200
-  acceleration_: 50
+  starting_speed_: 40
+  target_speed_: 60
+  acceleration_: 2
   rotation_speed_: 180
-  reach_distance_: 10
+  reach_distance_: 2

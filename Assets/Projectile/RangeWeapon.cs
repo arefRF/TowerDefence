@@ -17,8 +17,8 @@ public class RangeWeapon : MonoBehaviour
 
     void Update()
     {
-        if (last_shoot_time_ + shoot_interval_ < Time.time)
-            Shoot();
+        //if (last_shoot_time_ + shoot_interval_ < Time.time)
+            //Shoot();
     }
     private void Shoot()
     {
@@ -28,5 +28,11 @@ public class RangeWeapon : MonoBehaviour
         var projectile = Instantiate(prefab_, transform.position, Quaternion.identity).GetComponent<ProjectileBase>();
         projectile.Shoot(target_, data_, direction);
         last_shoot_time_ = Time.time;
+    }
+
+    public void Shoot(GameObject target)
+    {
+        target_ = target.transform;
+        Shoot();
     }
 }

@@ -23,8 +23,7 @@ public class MoveTest : MonoBehaviour
             destination_ = destination_.parent_;
             if(destination_ == null)
             {
-                gameObject.SetActive(false);
-                Destroy(gameObject);
+                Release();
             }
         }
         else
@@ -36,5 +35,12 @@ public class MoveTest : MonoBehaviour
     private int DistanceTo(Vector3 vector)
     {
         return (int)Vector3.Distance(transform.position, vector);
+    }
+
+    public void Release()
+    {
+        EnemyManager.sSingletone.RemoveenemyFromList(GetComponent<EnemyBase>());
+        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

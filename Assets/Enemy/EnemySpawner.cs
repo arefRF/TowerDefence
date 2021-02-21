@@ -29,8 +29,14 @@ public class EnemySpawner : MonoBehaviour
         if(current_interval_ <= 0)
         {
             current_interval_ = spawn_interval_;
-            var go = Instantiate(enemy_prefab_, spawner_point_.transform.position, spawner_point_.transform.rotation, enemy_parent_.transform).GetComponent<MoveTest>();
-            go.destination_ = spawner_node_;
+            SpawnEnemy();
         }
+    }
+
+    private void SpawnEnemy()
+    {
+        var go = Instantiate(enemy_prefab_, spawner_point_.transform.position, spawner_point_.transform.rotation, enemy_parent_.transform);
+        go.GetComponent<MoveTest>().destination_ = spawner_node_;
+        EnemyManager.sSingletone.AddEnemyToList(go.GetComponent<EnemyBase>());
     }
 }
