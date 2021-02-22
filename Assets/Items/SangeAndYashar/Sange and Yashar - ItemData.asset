@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87ddd8d0a57660646aed22c737f7b574, type: 3}
-  m_Name: ItemData
+  m_Name: Sange and Yashar - ItemData
   m_EditorClassIdentifier: 
-  item_enum: 0
+  item_enum_: 0
   stats_:
   - stat_enum_: 1
     value_: 52

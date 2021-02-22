@@ -4,7 +4,29 @@ using UnityEngine;
 
 public class ItemBase : MonoBehaviour
 {
+    protected TowerBase tower_;
 
-    public virtual void Initialize() {}
+    public ItemData item_data_;
+
+    /// <summary>
+    /// call Base first
+    /// </summary>
+    public virtual void Initialize(TowerBase tower, ItemData item_data) 
+    {
+        tower_ = tower;
+        item_data_ = item_data;
+    }
+
+    /// <summary>
+    /// call Base first
+    /// </summary>
+    public virtual void OnRelease()
+    {
+        tower_ = null;
+        item_data_ = null;
+    }
+    public virtual void SetDataOnTower() {}
+    public virtual void UnSetDataOnTower() {}
     public virtual void RegisterCallBacks() {}
+    public virtual void UnRegisterCallBacks() {}
 }

@@ -1,13 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Enums
+public class ProjectileStat : MonoBehaviour
 {
-    
-}
-
-public enum ItemEnum
-{
-    SangeAndYashar,
+    public List<StatBase> stats_;
 }

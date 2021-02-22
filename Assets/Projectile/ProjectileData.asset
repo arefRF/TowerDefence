@@ -15,5 +15,5 @@ MonoBehaviour:
   starting_speed_: 40
   target_speed_: 60
   acceleration_: 2
-  rotation_speed_: 180
+  rotation_speed_: 1800
   reach_distance_: 2
