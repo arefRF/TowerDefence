@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1851389516791960125}
   - component: {fileID: 9122707163917691977}
   - component: {fileID: 5025300915646829502}
-  - component: {fileID: 1318302643563147425}
   - component: {fileID: 2791435905097127328}
   - component: {fileID: 5690932902115471124}
   m_Layer: 0
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 510047693677995194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 656.6, y: 336.3, z: 260}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 352b4a631190b6048ab6badd5be46927, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1318302643563147425
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 510047693677995194}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!96 &2791435905097127328
 TrailRenderer:
   serializedVersion: 2
@@ -141,13 +127,13 @@ TrailRenderer:
   m_Time: 0.2
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 5
+    widthMultiplier: 1
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.36040688
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -168,7 +154,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.70082134, b: 0.44716978, a: 1}
+      key0: {r: 1, g: 0.54438645, b: 0.15471691, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0.39215687}
       key2: {r: 0, g: 0, b: 0, a: 1}
       key3: {r: 0, g: 0, b: 0, a: 0}
