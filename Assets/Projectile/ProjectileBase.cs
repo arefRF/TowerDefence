@@ -69,5 +69,14 @@ namespace Hive.Projectile
             return HitCheck();
         }
 
+
+        // DELEGATES //
+
+        public delegate void TowerAttackEventHandler(TowerBase tower);
+
+        public event TowerAttackEventHandler ShootStartCallback;
+        public event TowerAttackEventHandler ShootUpdateCallback;
+        public event TowerAttackEventHandler HitCallback;
+
     }
 }
