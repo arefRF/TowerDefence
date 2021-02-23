@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    private EnemyStatComponent stats_;
+    public EnemyStatComponent pStats { get { return stats_; } }
+    private EnemyHealthComponent health_;
+    public EnemyHealthComponent pHealth { get { return health_; } }
     void Start()
     {
-        
+        stats_ = GetComponent<EnemyStatComponent>();
+        health_ = GetComponent<EnemyHealthComponent>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         

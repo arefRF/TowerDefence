@@ -15,6 +15,13 @@ public class RangeWeapon : MonoBehaviour
     private ProjectileDataAsset data_;
     private float last_shoot_time_;
 
+    private TowerBase tower_;
+
+    void Start()
+    {
+        tower_ = GetComponent<TowerBase>();
+    }
+
     void Update()
     {
         //if (last_shoot_time_ + shoot_interval_ < Time.time)
@@ -26,7 +33,8 @@ public class RangeWeapon : MonoBehaviour
         direction.y = 1;
         direction = direction.normalized;
         var projectile = Instantiate(prefab_, transform.position, Quaternion.identity).GetComponent<ProjectileBase>();
-        projectile.Shoot(target_, data_, direction);
+        tower_.InvokeShootStartEvent(projectile);
+        projectile.Shoot(target_, tower_, direction);
         last_shoot_time_ = Time.time;
     }
 

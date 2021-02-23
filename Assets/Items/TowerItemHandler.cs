@@ -36,7 +36,6 @@ public class TowerItemHandler : MonoBehaviour
                 break;
             }
         }
-        Debug.LogError(item_data);
         component.Initialize(tower, item_data);
     }
 

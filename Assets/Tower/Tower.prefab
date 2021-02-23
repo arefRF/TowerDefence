@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d664888d7fe0314a853fbfb30fa398c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time_to_next_attack_: 0
 --- !u!114 &5517603672000846625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,10 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2f9c36d9f79dfe4fb5aac2ab476cb34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage_: 1
-  attack_time_: 0.2
-  projectile_speed_: 10
-  time_to_next_attack_: 0
+  stats_:
+  - stat_enum_: 2
+    value_: 1
 --- !u!114 &1117047865399405044
 MonoBehaviour:
   m_ObjectHideFlags: 0

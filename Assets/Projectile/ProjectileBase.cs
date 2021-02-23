@@ -6,7 +6,10 @@ namespace Hive.Projectile
 {
     public class ProjectileBase : MonoBehaviour
     {
-        private ProjectileDataAsset data_;
+        [SerializeField]
+        private ProjectileStat stats_;
+        public ProjectileStat pStats { get { return stats_; } }
+        private TowerBase tower_;
         private Vector3 direction_;
         private float current_speed_;
         private Transform target_;
@@ -15,23 +18,25 @@ namespace Hive.Projectile
         private float acceleration_direction_;
         private Vector3 target_pos_;
 
-        public void Shoot(Transform target, ProjectileDataAsset data, Vector3 direction)
+        public void Shoot(Transform target, TowerBase tower, Vector3 direction)
         {
+            tower_ = tower;
             target_ = target;
             direction_ = direction;
-            data_ = data;
-            current_speed_ = data_.starting_speed_;
-            is_accelerating_ = data_.starting_speed_ != data_.target_speed_;
+            current_speed_ = stats_.FindStat(StatEnum.StartingSpeed).value_;
+            is_accelerating_ = stats_.FindStat(StatEnum.StartingSpeed).value_ != stats_.FindStat(StatEnum.MaxSpeed).value_;
             if (is_accelerating_)
-                acceleration_direction_ = Mathf.Sign(data_.target_speed_ - data_.starting_speed_);
+                acceleration_direction_ = Mathf.Sign(stats_.FindStat(StatEnum.MaxSpeed).value_ - stats_.FindStat(StatEnum.StartingSpeed).value_);
             ProjectileManager.sSingleton.AddProjectile(this);
+            if(ShootStartCallback != null)
+                ShootStartCallback.Invoke(this);
         }
         private void UpdateSpeed()
         {
-            current_speed_ += (data_.acceleration_ * delta_time_);
-            if( acceleration_direction_ * (data_.target_speed_ - current_speed_) <= 0)
+            current_speed_ += (stats_.FindStat(StatEnum.Acceleration).value_ * delta_time_);
+            if( acceleration_direction_ * (stats_.FindStat(StatEnum.MaxSpeed).value_ - current_speed_) <= 0)
             {
-                current_speed_ = data_.target_speed_;
+                current_speed_ = stats_.FindStat(StatEnum.MaxSpeed).value_;
                 is_accelerating_ = false;
             }
         }
@@ -43,7 +48,7 @@ namespace Hive.Projectile
         private void UpdateDirection()
         {
             var target_direction = (target_pos_ - transform.position).normalized;
-            var rotation_value = (data_.rotation_speed_ * delta_time_) / Vector3.Angle(direction_, target_direction);
+            var rotation_value = (stats_.FindStat(StatEnum.RotationSpeed).value_ * delta_time_) / Vector3.Angle(direction_, target_direction);
             direction_ = Vector3.Lerp(direction_, target_direction, rotation_value).normalized;
         }
         private void UpdatePosition()
@@ -52,11 +57,13 @@ namespace Hive.Projectile
             var distance_to_target = (target_pos_ - transform.position).magnitude;
             movement_value = Mathf.Min(movement_value, distance_to_target);
             transform.position += direction_ * movement_value;
+            if(ShootUpdateCallback != null)
+                ShootUpdateCallback.Invoke(this);
         }
         private bool HitCheck()
         {
             var distance_to_target = (target_pos_ - transform.position).magnitude;
-            return distance_to_target <= data_.reach_distance_;
+            return distance_to_target <= stats_.FindStat(StatEnum.ReachDistance).value_;
         }
         public bool UpdateMovement(float delta_time)
         {
@@ -69,11 +76,20 @@ namespace Hive.Projectile
             return HitCheck();
         }
 
+        public void OnHit()
+        {
+            if(HitCallback != null)
+                HitCallback.Invoke(this);
+            if(target_ != null)
+            {
+                var enemy = target_.GetComponent<EnemyBase>();
+                enemy.pHealth.DoDamage(pStats.FindStat(StatEnum.Damage).value_);
+            }
+            Destroy(gameObject);
+        }
+
 
         // DELEGATES //
-
-        public delegate void TowerAttackEventHandler(TowerBase tower);
-
         public event TowerAttackEventHandler ShootStartCallback;
         public event TowerAttackEventHandler ShootUpdateCallback;
         public event TowerAttackEventHandler HitCallback;

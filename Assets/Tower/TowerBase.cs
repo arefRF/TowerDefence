@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Hive.Projectile;
 
 public class TowerBase : MonoBehaviour
 {
@@ -25,4 +26,14 @@ public class TowerBase : MonoBehaviour
         stat_component_ = GetComponent<TowerStatComponent>();    
         weapon_ = GetComponent<RangeWeapon>();
     }
+    
+    public event TowerAttackEventHandler ShootStartCallback;
+
+    public void InvokeShootStartEvent(ProjectileBase projectile)
+    {
+        if(ShootStartCallback != null)
+            ShootStartCallback.Invoke(projectile);
+    }
 }
+
+public delegate void TowerAttackEventHandler(ProjectileBase projectile);

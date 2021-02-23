@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Hive.Projectile;
 
 public class ItemBase : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class ItemBase : MonoBehaviour
     }
     public virtual void SetDataOnTower() {}
     public virtual void UnSetDataOnTower() {}
-    public virtual void RegisterCallBacks() {}
-    public virtual void UnRegisterCallBacks() {}
+    public virtual void RegisterProjectileCallBacks(ProjectileBase projectile) {}
+    public virtual void UnRegisterProjectileCallBacks() {}
+
+
 }
