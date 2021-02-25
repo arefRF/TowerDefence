@@ -12,7 +12,8 @@ public class UITileController : MonoBehaviour
     private GameObject black_tile;
 
     [SerializeField]
-    TileType type_;
+    private TileType type_;
+    public TileType pType { get { return type_; } }
 
     public void Initialize(TileType type)
     {

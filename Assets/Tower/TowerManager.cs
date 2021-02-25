@@ -39,7 +39,8 @@ public class TowerManager : MonoBehaviour
 
     public void DeployTowerAt(GameObject tile)
     {
-        if (undeployed_towers_list_.Count > 0 && GetDeployedTowerAt(tile.transform.position) == null)
+        var type = tile.GetComponent<UITileController>().pType;
+        if (type == TileType.Ground && undeployed_towers_list_.Count > 0 && GetDeployedTowerAt(tile.transform.position) == null)
         {
             var tower = undeployed_towers_list_[0];
             deployed_towers_list_.Add(tower);
