@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5544914232653112670}
   - component: {fileID: 4435606678272657170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crystal Tile
-  m_TagString: Untagged
+  m_TagString: TileBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,8 @@ MonoBehaviour:
   is_visited_: 0
   road_exit_direction: 0
   is_node: 0
+  number_: -1
+  edge_sink_list_: []
 --- !u!1 &7899740740325591829
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +63,7 @@ GameObject:
   - component: {fileID: 7291835948557866570}
   - component: {fileID: 6495373758023984331}
   - component: {fileID: 7961787242149514016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}

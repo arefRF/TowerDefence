@@ -5,6 +5,7 @@ using PathFinding;
 
 public class Map : MonoBehaviour
 {
+    public static Map sSingleton;
     [SerializeField]
     private TileBase first_tile_;
     [SerializeField]
@@ -28,6 +29,9 @@ public class Map : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        sSingleton = this;
+
+
         edges_ = new List<Vector3Int>();
         edges_by_tile_ = new List<Edge>();
         node_points_ = new List<NodePoint>();
@@ -93,7 +97,8 @@ public class Map : MonoBehaviour
             tiles_[i] = new TileBase[map_size_.y];
         }
         tiles_[0][0] = first_tile_;
-        for(int i=0; i<map_size_.x; i++)
+        AddUITile(first_tile_);
+        for (int i=0; i<map_size_.x; i++)
         {
             for(int j=0; j<map_size_.y; j++)
             {
@@ -109,6 +114,7 @@ public class Map : MonoBehaviour
                             {
                                 tiles_[i][j] = children_[k];
                                 children_[k].position_ = new Vector2Int(i, j);
+                                AddUITile(children_[k]);
                                 break;
                             }
                         }
@@ -124,6 +130,7 @@ public class Map : MonoBehaviour
                             {
                                 tiles_[i][j] = children_[k];
                                 children_[k].position_ = new Vector2Int(i, j);
+                                AddUITile(children_[k]);
                                 break;
                             }
                         }
@@ -274,4 +281,22 @@ public class Map : MonoBehaviour
             sink_ = sink;
         }
     }
+
+
+    /////////  MAP UI ////////
+    ///
+
+    public List<UITileController> placable_tiles_ = new List<UITileController>();
+    [SerializeField]
+    private GameObject ui_tile_prefab;
+    [SerializeField]
+    private Transform ui_parent_;
+
+    private void AddUITile(TileBase tile) 
+    {
+        var ui_tile = Instantiate(ui_tile_prefab, tile.transform.position, tile.transform.rotation, ui_parent_).GetComponent<UITileController>();
+        ui_tile.Initialize(tile.type_);
+        placable_tiles_.Add(ui_tile);
+    }
+
 }
