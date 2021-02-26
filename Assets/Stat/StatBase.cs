@@ -11,5 +11,5 @@ public class StatBase
 
 public enum StatEnum
 {
-    HP, Damage, AttackTime    
+    HP, Damage, AttackTime, StartingSpeed, Acceleration, MaxSpeed, RotationSpeed, ReachDistance 
 }

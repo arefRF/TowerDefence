@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class TowerStatComponent : MonoBehaviour
 {
-    [SerializeField] private float damage_;
-    public float pDamage { get { return damage_; } }
-    [SerializeField] private float attack_time_;
-    public float pAttackTime { get { return attack_time_; } }
-    [SerializeField] private float projectile_speed_;
-    public float pProjectileSpeed { get { return projectile_speed_; } }
-
-
     [SerializeField]
-    private float time_to_next_attack_;
-    public float pTimeToNextAttack { get{ return time_to_next_attack_; } set { time_to_next_attack_ = value; } }
+    private List<StatBase> stats_;
+
+    public StatBase FindStat(StatEnum stat_enum)
+    {
+        for(int i=0; i<stats_.Count; i++)
+        {
+            if(stats_[i].stat_enum_ == stat_enum)
+                return stats_[i];
+        }
+        Debug.LogError("stat not found. Stat: " + stat_enum);
+        return null;
+    }
+
+    public void MultiplyStat(StatEnum stat_enum, float multiplier)
+    {
+        var stat = FindStat(stat_enum);
+        if(stat != null)
+            stat.value_ *= multiplier;
+    }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1440125305646680990}
   - component: {fileID: 3236294245895764255}
   - component: {fileID: 1779035294451308276}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,9 +106,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4197049606202456202}
   - component: {fileID: 5423429861331098310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ground Tile
-  m_TagString: Untagged
+  m_TagString: TileBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,3 +145,5 @@ MonoBehaviour:
   is_visited_: 0
   road_exit_direction: 0
   is_node: 0
+  number_: -1
+  edge_sink_list_: []

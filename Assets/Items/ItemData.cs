@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "ItemData", menuName = "Item/ItemData", order = 2)]
+[CreateAssetMenu(fileName = "ItemData", menuName = "Item/Item Data", order = 2)]
 public class ItemData : ScriptableObject
 {
-    public ItemEnums item_enum;
+    public ItemEnum item_enum_;
 
     public List<StatBase> stats_;
 }

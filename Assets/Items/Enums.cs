@@ -7,7 +7,7 @@ public class Enums
     
 }
 
-public enum ItemEnums
+public enum ItemEnum
 {
     SangeAndYashar,
 }
