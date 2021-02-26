@@ -5,7 +5,7 @@ namespace UnityEditor
     [CustomPropertyDrawer(typeof(PreviewSpriteAttribute))]
     public class PreviewSpriteDrawer : PropertyDrawer
     {
-        const float imageHeight = 100;
+        const float imageHeight = 75;
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
