@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: e9876f06e7ccff74da917a3f7611c518
+guid: b98080187422ce4459d1fec4f8226254
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 5573509540596743180
-    second: UI Frame_0
-  - first:
-      213: -8909716781675859051
-    second: UI Frame_1
-  - first:
-      213: 1003463400944360897
-    second: UI Frame 2_0
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,7 +32,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -50,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -98,28 +89,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: UI Frame 2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 100
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 9, y: 0, z: 9, w: 9}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cdd46685a40ded00800000000000000
-      internalID: 1003463400944360897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
