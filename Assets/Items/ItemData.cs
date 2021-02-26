@@ -6,6 +6,11 @@ using UnityEngine;
 public class ItemData : ScriptableObject
 {
     public ItemEnum item_enum_;
-
+    [PreviewSprite]
+    public Sprite icon_;
+    [TextArea(1, 10)]
+    public string name_;
+    [TextArea(3, 10)]
+    public string description_;
     public List<StatBase> stats_;
 }

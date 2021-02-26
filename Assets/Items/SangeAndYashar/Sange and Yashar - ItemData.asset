@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Sange and Yashar - ItemData
   m_EditorClassIdentifier: 
   item_enum_: 0
+  icon_: {fileID: 21300000, guid: cf724470f3e69b54fa17b84ff10ca51f, type: 3}
+  name_: Sanage And Yashar
+  description_: Incrases damage
   stats_:
   - stat_enum_: 1
     value_: 52
