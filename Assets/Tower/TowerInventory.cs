@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerItemHandler : MonoBehaviour
+public class TowerInventory : MonoBehaviour
 {
     [SerializeField]
     private Transform item_parent_;
     [SerializeField]
     private GameObject item_base_object_;
 
-    private TowerBase tower;
+    private TowerBase tower_;
     private List<ItemBase> items_list_;
 
     public void Start()
     {
-        tower = GetComponent<TowerBase>();
+        tower_ = GetComponent<TowerBase>();
         items_list_ = new List<ItemBase>();
     }
     public void AddItem(ItemEnum item_enum)
@@ -25,7 +25,7 @@ public class TowerItemHandler : MonoBehaviour
         item.gameObject.name = item_enum.ToString();
         switch(item_enum)
         {
-            case ItemEnum.SangeAndYashar : component = item.AddComponent<SangeAndYashar>(); items_list_.Add(component); break;
+            case ItemEnum.SangeAndYashar : component = item.AddComponent<SangeAndYashar>();  break;
         }
         ItemData item_data = null;
         for(int i=0; i<StaticItemsData.sSingleton.items_data_list_.Count; i++)
@@ -36,7 +36,8 @@ public class TowerItemHandler : MonoBehaviour
                 break;
             }
         }
-        component.Initialize(tower, item_data);
+        items_list_.Add(component);
+        component.Initialize(tower_, item_data);
     }
 
     public void RemoveItem(ItemEnum item_enum)

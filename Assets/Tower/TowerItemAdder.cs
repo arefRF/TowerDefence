@@ -7,10 +7,10 @@ public class TowerItemAdder : MonoBehaviour
     public bool add_item_;
     public ItemEnum item_enum_;
     
-    private TowerItemHandler tower_item_handler_;
+    private TowerInventory tower_item_handler_;
     void Start()
     {
-        tower_item_handler_ = GetComponent<TowerItemHandler>();
+        tower_item_handler_ = GetComponent<TowerInventory>();
     }
 
     void OnValidate()    

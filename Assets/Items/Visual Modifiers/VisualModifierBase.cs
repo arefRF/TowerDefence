@@ -12,14 +12,10 @@ public class BulletVisualModifierBase : MonoBehaviour
     public virtual void Initialize(ProjectileBase bullet)
     {
         bullet_ = bullet;
-        RegisterStartCallBack();
-        RegisterUpdateCallBack();
-        RegisterHitCallBack();
+        RegisterCallBacks();
     }
 
-    public virtual void RegisterStartCallBack() { }
-    public virtual void RegisterUpdateCallBack() { }
-    public virtual void RegisterHitCallBack() { }
+    public virtual void RegisterCallBacks() { }
 }
 
 public enum BulletVisualModifierEnum

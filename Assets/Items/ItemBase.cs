@@ -16,6 +16,8 @@ public class ItemBase : MonoBehaviour
     {
         tower_ = tower;
         item_data_ = item_data;
+        tower_.ShootStartCallback += RegisterProjectileCallBacks;
+        SetDataOnTower();
     }
 
     /// <summary>
@@ -25,11 +27,13 @@ public class ItemBase : MonoBehaviour
     {
         tower_ = null;
         item_data_ = null;
+        UnSetDataOnTower();
+        Destroy(gameObject);
     }
     public virtual void SetDataOnTower() {}
     public virtual void UnSetDataOnTower() {}
-    public virtual void RegisterProjectileCallBacks(ProjectileBase projectile) {}
-    public virtual void UnRegisterProjectileCallBacks() {}
-
-
+    public virtual void RegisterProjectileCallBacks(ProjectileBase projectile) 
+    {
+        Debug.LogError("implement visual moddifier here");
+    }
 }
