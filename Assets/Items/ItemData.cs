@@ -14,4 +14,5 @@ public class ItemData : ScriptableObject
     public string description_;
     public List<BulletVisualModifierEnum> visual_modifier_list_;
     public List<StatBase> stats_;
+    
 }
