@@ -6,11 +6,11 @@ public class TowerItemAdder : MonoBehaviour
 {
     public bool add_item_;
     public ItemEnum item_enum_;
-    
-    private TowerInventory tower_item_handler_;
+
+    private TowerInventory tower_inventory_;
     void Start()
     {
-        tower_item_handler_ = GetComponent<TowerInventory>();
+        tower_inventory_ = GetComponent<TowerInventory>();
     }
 
     void OnValidate()    
@@ -20,7 +20,7 @@ public class TowerItemAdder : MonoBehaviour
             if(add_item_)
             {
                 add_item_ = false;
-                tower_item_handler_.AddItem(item_enum_);
+                tower_inventory_.AddItemToFreeSlot(item_enum_);
             }
         }
     }

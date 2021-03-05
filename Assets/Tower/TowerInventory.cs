@@ -23,7 +23,7 @@ public class TowerInventory : MonoBehaviour
     }
     public void AddItem(ItemEnum item_enum, int index)
     {
-        if(items_list_[index] != null)
+        if (items_list_[index] != null)
         {
             Debug.LogError("slot: %index% is full. cant add item");
             return;
@@ -32,29 +32,52 @@ public class TowerInventory : MonoBehaviour
         ItemBase component = null;
         item.transform.SetParent(item_parent_);
         item.gameObject.name = item_enum.ToString();
-        switch(item_enum)
+        switch (item_enum)
         {
-            case ItemEnum.SangeAndYashar : component = item.AddComponent<SangeAndYashar>();  break;
+            case ItemEnum.SangeAndYashar: component = item.AddComponent<SangeAndYashar>(); break;
         }
         ItemData item_data = null;
-        for(int i=0; i<StaticItemsData.sSingleton.items_data_list_.Count; i++)
+        for (int i = 0; i < StaticItemsData.sSingleton.items_data_list_.Count; i++)
         {
-            if(StaticItemsData.sSingleton.items_data_list_[i].item_enum_ == item_enum)
+            if (StaticItemsData.sSingleton.items_data_list_[i].item_enum_ == item_enum)
             {
                 item_data = StaticItemsData.sSingleton.items_data_list_[i];
                 break;
             }
         }
-        
+        current_items_count++;
         component.Initialize(tower_, item_data);
+    }
+
+    public void AddItemToFreeSlot(ItemEnum item_enum)
+    {
+        int free_index;
+        if (TryGetNetFreeSlot(out free_index))
+            AddItem(item_enum, free_index);
+        else
+            Debug.LogError("slot: %free_index% is full. cant add item");
+    }
+
+    private bool TryGetNetFreeSlot(out int index)
+    {
+        index = -1;
+        for (int i = 0; i < items_list_.Length; i++)
+        {
+            if (items_list_[i] == null)
+            {
+                index = i;
+                return true;
+            }
+        }
+        return false;
     }
 
     public void RemoveItem(ItemEnum item_enum)
     {
-        for(int i=0; i<items_list_.Length; i++)
+        for (int i = 0; i < items_list_.Length; i++)
         {
             var item = items_list_[i];
-            if(item.item_data_.item_enum_ == item_enum)
+            if (item.item_data_.item_enum_ == item_enum)
             {
                 items_list_[i] = null;
                 item.OnRelease();
@@ -67,7 +90,7 @@ public class TowerInventory : MonoBehaviour
 
     public void RemoveItemAt(int index)
     {
-        if(items_list_[index] == null)
+        if (items_list_[index] == null)
         {
             Debug.LogError("no item is in slot: " + index);
             return;
