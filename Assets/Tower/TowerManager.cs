@@ -26,6 +26,15 @@ public class TowerManager : MonoBehaviour
         }
         return null;
     }
+    public TowerBase GetUndeployedTowerAt(UITileController ui_tile)
+    {
+        for (int i = 0; i < undeployed_towers_list_.Count; i++)
+        {
+            if (undeployed_towers_list_[i].pUITile == ui_tile)
+                return undeployed_towers_list_[i];
+        }
+        return null;
+    }
 
     public TowerBase GetDeployedTowerAt(Vector3 position)
     {
@@ -36,22 +45,32 @@ public class TowerManager : MonoBehaviour
         }
         return null;
     }
+    public TowerBase GetDeployedTowerAt(UITileController ui_tile)
+    {
+        for (int i = 0; i < deployed_towers_list_.Count; i++)
+        {
+            if (deployed_towers_list_[i].pUITile == ui_tile)
+                return deployed_towers_list_[i];
+        }
+        return null;
+    }
 
     public void DeployTowerAt(GameObject tile)
-    {
-        var type = tile.GetComponent<UITileController>().pType;
-        if (type == TileType.Ground && undeployed_towers_list_.Count > 0 && GetDeployedTowerAt(tile.transform.position) == null)
+    { 
+        var ui_tile = tile.GetComponent<UITileController>();
+        if (ui_tile.pType == TileType.Ground && undeployed_towers_list_.Count > 0 && GetDeployedTowerAt(ui_tile) == null)
         {
             var tower = undeployed_towers_list_[0];
             deployed_towers_list_.Add(tower);
             undeployed_towers_list_.Remove(tower);
-            tower.DeployTower(tile);
+            tower.DeployTower(ui_tile);
         }
     }
 
     public void UnDeployTowerAt(GameObject tile)
     {
-        var tower = GetDeployedTowerAt(tile.transform.position);
+        var ui_tile = tile.GetComponent<UITileController>();
+        var tower = GetDeployedTowerAt(ui_tile);
         if(tower != null)
         {
             deployed_towers_list_.Remove(tower);

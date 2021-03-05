@@ -29,7 +29,7 @@ public class UITileController : MonoBehaviour
         gameObject.SetActive(true);
         if (type_ == TileType.Ground)
         {
-            if (TowerManager.sSingleton.GetDeployedTowerAt(transform.position) != null)
+            if (TowerManager.sSingleton.GetDeployedTowerAt(this) != null)
                 red_tile.SetActive(true);
             else
                 green_tile.SetActive(true);

@@ -16,6 +16,7 @@ public class TowerBase : MonoBehaviour
 
     private Vector3 initial_position;
     private UITileController ui_tile_;
+    public UITileController pUITile { get { return ui_tile_; } }
 
     public void Start()
     {
@@ -40,11 +41,11 @@ public class TowerBase : MonoBehaviour
             ShootStartCallback.Invoke(projectile);
     }
 
-    public void DeployTower(GameObject tile)
+    public void DeployTower(UITileController ui_tile)
     {
         gameObject.SetActive(true);
-        transform.parent.position = tile.transform.position;
-        ui_tile_ = tile.GetComponent<UITileController>();
+        transform.parent.position = ui_tile.transform.position;
+        ui_tile_ = ui_tile;
         ui_tile_.Refresh();
     }
 
