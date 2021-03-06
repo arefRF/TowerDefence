@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87ddd8d0a57660646aed22c737f7b574, type: 3}
-  m_Name: Increase Bullet Damage Item - ItemData
+  m_Name: Create More Bullets At End Item - ItemData
   m_EditorClassIdentifier: 
-  item_enum_: 1
-  icon_: {fileID: 21300000, guid: 70c1986a612c6814cb9ef019f7528336, type: 3}
-  name_: Increase Bullet Damage Item
-  description_: Increase Bullet Damage
+  item_enum_: 2
+  icon_: {fileID: 21300000, guid: ecf5e300829b771499f057d7c951fcf9, type: 3}
+  name_: Create More Bullets At End
+  description_: 'Creates additional bullets when hitting an enemy
+
+'
   visual_modifier_list_: 
   stats_:
-  - stat_enum_: 1
-    value_: 1.1
-  - stat_enum_: 8
-    value_: 0.2
+  - stat_enum_: 9
+    value_: 3

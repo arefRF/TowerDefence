@@ -16,9 +16,4 @@ public class SangeAndYashar : ItemBase
         var stat = item_data_.FindStat(StatEnum.AttackTime);
         tower_.pStatComponent.MultiplyStat(StatEnum.AttackTime, 1/stat.value_);
     }
-
-    public override void RegisterProjectileCallBacks(ProjectileBase projectile)
-    {
-        base.RegisterProjectileCallBacks(projectile);
-    }
 }

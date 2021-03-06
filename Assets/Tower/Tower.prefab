@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 780091ecfe79d7f4db440cf10090fb61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory_capacity_: 0
+  inventory_capacity_: 6
   item_parent_: {fileID: 7809607788924594704}
   item_base_object_: {fileID: 4964958019185705220, guid: 7b6838d6c9f4dd44386cd0614848a7f3, type: 3}
 --- !u!114 &7809607789620669396

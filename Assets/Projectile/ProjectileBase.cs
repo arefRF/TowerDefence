@@ -6,9 +6,12 @@ namespace Hive.Projectile
 {
     public class ProjectileBase : MonoBehaviour
     {
+        private static int counter = 1;
+        private int id_;
+        public int pId { get { return id_; } }
         [SerializeField]
         private ProjectileStat stats_;
-        public ProjectileStat pStats { get { return stats_; } }
+        public ProjectileStat pStatComponent { get { return stats_; } }
         private TowerBase tower_;
         private Vector3 direction_;
         private float current_speed_;
@@ -23,6 +26,7 @@ namespace Hive.Projectile
             tower_ = tower;
             target_ = target;
             direction_ = direction;
+            id_ = counter++;
             current_speed_ = stats_.FindStat(StatEnum.StartingSpeed).value_;
             is_accelerating_ = stats_.FindStat(StatEnum.StartingSpeed).value_ != stats_.FindStat(StatEnum.MaxSpeed).value_;
             if (is_accelerating_)
@@ -83,9 +87,16 @@ namespace Hive.Projectile
             if(target_ != null)
             {
                 var enemy = target_.GetComponent<EnemyBase>();
-                enemy.pHealth.DoDamage(pStats.FindStat(StatEnum.Damage).value_);
+                enemy.pHealth.DoDamage(pStatComponent.FindStat(StatEnum.Damage).value_);
             }
-            Destroy(gameObject);
+            Release();
+        }
+
+        public void Release()
+        {
+            if(OnRelease != null)
+                OnRelease.Invoke(this);
+                Destroy(gameObject);
         }
 
 
@@ -93,6 +104,7 @@ namespace Hive.Projectile
         public event TowerAttackEventHandler ShootStartCallback;
         public event TowerAttackEventHandler ShootUpdateCallback;
         public event TowerAttackEventHandler HitCallback;
+        public event TowerAttackEventHandler OnRelease;
 
     }
 }

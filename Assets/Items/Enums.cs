@@ -9,5 +9,5 @@ public class Enums
 
 public enum ItemEnum
 {
-    SangeAndYashar,
+    SangeAndYashar, IncreaseBulletDamage, CreateMoreBulletsAtEnd
 }

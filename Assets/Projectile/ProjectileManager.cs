@@ -28,8 +28,9 @@ namespace Hive.Projectile {
             {
                 if (active_projectiles_[i].UpdateMovement(delta_time))
                 {
-                    active_projectiles_[i].OnHit();
+                    var proj = active_projectiles_[i];
                     active_projectiles_.RemoveAt(i);
+                    proj.OnHit();
                     i--;
                 }
             }

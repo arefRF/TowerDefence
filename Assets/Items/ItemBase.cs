@@ -34,6 +34,6 @@ public class ItemBase : MonoBehaviour
     public virtual void UnSetDataOnTower() {}
     public virtual void RegisterProjectileCallBacks(ProjectileBase projectile) 
     {
-        Debug.LogError("implement visual moddifier here");
+        Debug.Log("implement visual moddifier here");
     }
 }

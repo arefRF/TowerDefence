@@ -20,7 +20,7 @@ public class EnemyHealthComponent : MonoBehaviour
 
     public void Die()
     {
-        EnemyManager.sSingletone.RemoveenemyFromList(GetComponent<EnemyBase>());
+        EnemyManager.sSingletone.RemoveEnemyFromList(GetComponent<EnemyBase>());
         gameObject.SetActive(false);
         Destroy(gameObject);
     }

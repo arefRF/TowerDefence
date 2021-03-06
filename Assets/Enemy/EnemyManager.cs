@@ -22,7 +22,7 @@ public class EnemyManager : MonoBehaviour
         enemies_.Add(enemy);
     }
 
-    public void RemoveenemyFromList(EnemyBase enemy)
+    public void RemoveEnemyFromList(EnemyBase enemy)
     {
         if(enemies_.Contains(enemy))
             enemies_.Remove(enemy);

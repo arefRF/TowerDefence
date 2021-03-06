@@ -39,7 +39,7 @@ public class MoveTest : MonoBehaviour
 
     public void Release()
     {
-        EnemyManager.sSingletone.RemoveenemyFromList(GetComponent<EnemyBase>());
+        EnemyManager.sSingletone.RemoveEnemyFromList(GetComponent<EnemyBase>());
         gameObject.SetActive(false);
         Destroy(gameObject);
     }
