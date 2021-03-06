@@ -14,5 +14,16 @@ public class ItemData : ScriptableObject
     public string description_;
     public List<BulletVisualModifierEnum> visual_modifier_list_;
     public List<StatBase> stats_;
-    
+
+    public StatBase FindStat(StatEnum stat_enum)
+    {
+        for (int i = 0; i < stats_.Count; i++)
+        {
+            if (stats_[i].stat_enum_ == stat_enum)
+                return stats_[i];
+        }
+        Debug.LogError("stat not found. Stat: " + stat_enum);
+        return null;
+    }
+
 }

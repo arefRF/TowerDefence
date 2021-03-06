@@ -7,23 +7,18 @@ public class SangeAndYashar : ItemBase
 {
     public override void SetDataOnTower()
     {
-        tower_.pStatComponent.MultiplyStat(StatEnum.AttackTime, 1/2f);
+        var stat = item_data_.FindStat(StatEnum.AttackTime);
+        tower_.pStatComponent.MultiplyStat(StatEnum.AttackTime, stat.value_);
     }
 
     public override void UnSetDataOnTower()
     {
-        tower_.pStatComponent.MultiplyStat(StatEnum.AttackTime, 2f);
+        var stat = item_data_.FindStat(StatEnum.AttackTime);
+        tower_.pStatComponent.MultiplyStat(StatEnum.AttackTime, 1/stat.value_);
     }
 
     public override void RegisterProjectileCallBacks(ProjectileBase projectile)
     {
         base.RegisterProjectileCallBacks(projectile);
-        projectile.ShootUpdateCallback += DecreaseSpeed;
-    }
-    
-    // CALLBACKS //
-    public void DecreaseSpeed(ProjectileBase projectile)
-    {
-        projectile.pStats.MultiplyStat(StatEnum.Damage, 0.9f);
     }
 }
