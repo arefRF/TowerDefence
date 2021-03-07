@@ -20,6 +20,7 @@ public class TowerBase : MonoBehaviour
 
     public event TowerPreAttackEventHandler PreShootStartCallback;
     public event TowerAttackEventHandler ShootStartCallback;
+    public TowerInventory pInventory { get; private set;}
 
     public void Start()
     {
@@ -32,6 +33,8 @@ public class TowerBase : MonoBehaviour
         sense_component_ = GetComponent<TowerSenseComponent>();
         stat_component_ = GetComponent<TowerStatComponent>();    
         weapon_ = GetComponent<RangeWeapon>();
+        pInventory = GetComponent<TowerInventory>();
+        pInventory.SetTower(this);
         initial_position = transform.position;
         UndeployTower();
     }

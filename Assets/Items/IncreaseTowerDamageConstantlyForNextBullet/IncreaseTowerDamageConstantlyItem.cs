@@ -13,8 +13,8 @@ public class IncreaseTowerDamageConstantlyItem : ItemBase
     {
         base.Initialize(tower);
         last_shoot_time_ = Time.time;
-        interval_ = item_data_.FindStat(StatEnum.Interval).value_;
-        damage_ = item_data_.FindStat(StatEnum.Damage).value_;
+        interval_ = pItemData.FindStat(StatEnum.Interval).value_;
+        damage_ = pItemData.FindStat(StatEnum.Damage).value_;
     }
     public override void RegisterProjectileCallBacks(ProjectileBase projectile)
     {

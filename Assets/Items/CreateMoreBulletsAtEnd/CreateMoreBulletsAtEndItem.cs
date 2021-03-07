@@ -15,9 +15,9 @@ public class CreateMoreBulletsAtEndItem : ItemBase
 
     private void CreateAditionalBullets(ProjectileBase projectile)
     {
-        if(projectile.pOrder >= item_data_.supported_order_)
+        if(projectile.pOrder >= pItemData.supported_order_)
             return;
-        var count = item_data_.FindStat(StatEnum.Count).value_;
+        var count = pItemData.FindStat(StatEnum.Count).value_;
         for(int i=0; i < count; i++)
         {
             var target = EnemyManager.sSingletone.GetRandomEnemy();

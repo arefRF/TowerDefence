@@ -24,13 +24,13 @@ public class IncreaseBulletDamageItem : ItemBase
     private void SetCallBackTimer(ProjectileBase projectile)
     {
         int timer_id;
-        var interval = item_data_.FindStat(StatEnum.Interval);
+        var interval = pItemData.FindStat(StatEnum.Interval);
         Timer.RegisterTimer(IncreaseDamage, interval.value_, -1, projectile, out timer_id);
         timer_id_dic.Add(projectile.pId, timer_id);
     }
     public void IncreaseDamage(ProjectileBase projectile)
     {
-        var stat = item_data_.FindStat(StatEnum.Damage);
+        var stat = pItemData.FindStat(StatEnum.Damage);
         projectile.pStatComponent.MultiplyStat(StatEnum.Damage, stat.value_);
     }
 

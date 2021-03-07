@@ -7,13 +7,13 @@ public class SangeAndYashar : ItemBase
 {
     public override void SetDataOnTower()
     {
-        var stat = item_data_.FindStat(StatEnum.AttackTime);
+        var stat = pItemData.FindStat(StatEnum.AttackTime);
         tower_.pStatComponent.MultiplyStat(StatEnum.AttackTime, stat.value_);
     }
 
     public override void UnSetDataOnTower()
     {
-        var stat = item_data_.FindStat(StatEnum.AttackTime);
+        var stat = pItemData.FindStat(StatEnum.AttackTime);
         tower_.pStatComponent.MultiplyStat(StatEnum.AttackTime, 1/stat.value_);
     }
 }
