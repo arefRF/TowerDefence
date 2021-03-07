@@ -28,7 +28,7 @@ namespace Hive.Projectile
         {
             trail_duration_ = GetComponentInChildren<TrailRenderer>().time;
         }
-        public void Shoot(Transform target, TowerBase tower, Vector3 direction)
+        public void Shoot(Transform target, TowerBase tower, Vector3 direction, int order)
         {
             order_ = order;
             tower_ = tower;
