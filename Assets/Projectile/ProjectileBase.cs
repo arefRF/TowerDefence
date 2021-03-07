@@ -17,7 +17,11 @@ namespace Hive.Projectile
         private bool is_accelerating_;
         private float acceleration_direction_;
         private Vector3 target_pos_;
-
+        private float trail_duration_;
+        private void Awake()
+        {
+            trail_duration_ = GetComponentInChildren<TrailRenderer>().time;
+        }
         public void Shoot(Transform target, TowerBase tower, Vector3 direction)
         {
             tower_ = tower;
@@ -85,7 +89,7 @@ namespace Hive.Projectile
                 var enemy = target_.GetComponent<EnemyBase>();
                 enemy.pHealth.DoDamage(pStats.FindStat(StatEnum.Damage).value_);
             }
-            Destroy(gameObject);
+            Destroy(gameObject,trail_duration_);
         }
 
 
