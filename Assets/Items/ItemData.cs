@@ -12,6 +12,7 @@ public class ItemData : ScriptableObject
     public string name_;
     [TextArea(3, 10)]
     public string description_;
+    public int supported_order_;
     public List<BulletVisualModifierEnum> visual_modifier_list_;
     public List<StatBase> stats_;
 

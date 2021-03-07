@@ -18,6 +18,7 @@ MonoBehaviour:
   description_: 'Creates additional bullets when hitting an enemy
 
 '
+  supported_order_: 1
   visual_modifier_list_: 
   stats_:
   - stat_enum_: 9

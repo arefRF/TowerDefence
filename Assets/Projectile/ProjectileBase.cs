@@ -9,6 +9,9 @@ namespace Hive.Projectile
         private static int counter = 1;
         private int id_;
         public int pId { get { return id_; } }
+        private int order_;
+        public int pOrder { get { return order_; } }
+
         [SerializeField]
         private ProjectileStat stats_;
         public ProjectileStat pStatComponent { get { return stats_; } }
@@ -21,8 +24,9 @@ namespace Hive.Projectile
         private float acceleration_direction_;
         private Vector3 target_pos_;
 
-        public void Shoot(Transform target, TowerBase tower, Vector3 direction)
+        public void Shoot(Transform target, TowerBase tower, Vector3 direction, int order)
         {
+            order_ = order;
             tower_ = tower;
             target_ = target;
             direction_ = direction;

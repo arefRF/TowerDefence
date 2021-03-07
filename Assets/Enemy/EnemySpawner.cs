@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject enemy_prefab_;
+    private List<GameObject> enemy_prefab_list_;
     [SerializeField]
     private GameObject enemy_parent_;
     [SerializeField]
@@ -35,8 +35,14 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        var go = Instantiate(enemy_prefab_, spawner_point_.transform.position, spawner_point_.transform.rotation, enemy_parent_.transform);
+        var go = Instantiate(GetRandomEnemy(), spawner_point_.transform.position, spawner_point_.transform.rotation, enemy_parent_.transform);
         go.GetComponent<MoveTest>().destination_ = spawner_node_;
         EnemyManager.sSingletone.AddEnemyToList(go.GetComponent<EnemyBase>());
+    }
+
+    private GameObject GetRandomEnemy()
+    {
+        var rand = Random.Range(0, enemy_prefab_list_.Count);
+        return enemy_prefab_list_[rand];
     }
 }

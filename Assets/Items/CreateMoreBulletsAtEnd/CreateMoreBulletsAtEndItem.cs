@@ -15,11 +15,13 @@ public class CreateMoreBulletsAtEndItem : ItemBase
 
     private void CreateAditionalBullets(ProjectileBase projectile)
     {
+        if(projectile.pOrder >= item_data_.supported_order_)
+            return;
         var count = item_data_.FindStat(StatEnum.Count).value_;
         for(int i=0; i < count; i++)
         {
             var target = EnemyManager.sSingletone.GetRandomEnemy();
-            ShootUtility.Shoot(target.transform, tower_, projectile.transform);
+            ShootUtility.Shoot(target.transform, tower_, projectile.transform, projectile.pOrder + 1);
         }
     }
 }

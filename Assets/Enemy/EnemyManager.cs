@@ -8,7 +8,7 @@ public class EnemyManager : MonoBehaviour
 
 
     private List<EnemyBase> enemies_;
-    public void Start() 
+    void Start() 
     {
         if(sSingletone != null)
         Debug.LogError("there are more than one " + gameObject, gameObject);
@@ -36,5 +36,37 @@ public class EnemyManager : MonoBehaviour
             return null;
         int rand_num = Random.Range(0, enemies_.Count);
         return enemies_[rand_num];
+    }
+
+    public EnemyBase GetNearestEnemy(Vector3 position)
+    {
+        EnemyBase enemy = null;
+        float distance = int.MaxValue;
+        for(int i=0; i<enemies_.Count; i++)
+        {
+            var temp = Vector3.Distance(position, enemies_[i].transform.position);
+            if(distance > temp)
+            {
+                distance = temp;
+                enemy = enemies_[i];
+            }
+        }
+        return enemy;
+    }
+
+    public EnemyBase GetFurthestEnemy(Vector3 position)
+    {
+        EnemyBase enemy = null;
+        float distance = 0;
+        for(int i=0; i<enemies_.Count; i++)
+        {
+            var temp = Vector3.Distance(position, enemies_[i].transform.position);
+            if(distance < temp)
+            {
+                distance = temp;
+                enemy = enemies_[i];
+            }
+        }
+        return enemy;
     }
 }

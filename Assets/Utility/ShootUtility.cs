@@ -5,13 +5,13 @@ using Hive.Projectile;
 
 public class ShootUtility
 {
-    public static void Shoot(Transform target, TowerBase tower, Transform shoot_source)
+    public static void Shoot(Transform target, TowerBase tower, Transform shoot_source, int order)
     {
         var direction = target.position - shoot_source.position;
         direction.y = 1;
         direction = direction.normalized;
         var projectile = GameObject.Instantiate(StaticDataContainer.sSingleton.pProjectilePrefab, shoot_source.position, Quaternion.identity).GetComponent<ProjectileBase>();
         tower.InvokeShootStartEvent(projectile);
-        projectile.Shoot(target, tower, direction);
+        projectile.Shoot(target, tower, direction, order);
     }
 }

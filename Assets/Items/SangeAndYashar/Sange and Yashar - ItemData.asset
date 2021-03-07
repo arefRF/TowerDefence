@@ -16,7 +16,8 @@ MonoBehaviour:
   icon_: {fileID: 21300000, guid: cf724470f3e69b54fa17b84ff10ca51f, type: 3}
   name_: Sanage And Yashar
   description_: Incrases damage
+  supported_order_: 0
   visual_modifier_list_: 
   stats_:
-  - stat_enum_: 1
-    value_: 52
+  - stat_enum_: 2
+    value_: 0.8
