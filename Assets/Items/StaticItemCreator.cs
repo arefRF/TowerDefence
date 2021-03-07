@@ -21,14 +21,15 @@ public class StaticItemCreator : MonoBehaviour
     }
     public ItemBase CreateItem(ItemData item_data)
     {
-        GameObject item_gameobjec = new GameObject();
-        item_gameobjec.name = item_data.item_enum_.ToString();
+        GameObject item_gameobject = new GameObject();
+        item_gameobject.name = item_data.item_enum_.ToString();
         ItemBase item = null;
         switch (item_data.item_enum_)
         {
-            case ItemEnum.SangeAndYashar: item = item_gameobjec.AddComponent<SangeAndYashar>(); break;
-            case ItemEnum.IncreaseBulletDamage: item = item_gameobjec.AddComponent<IncreaseBulletDamageItem>(); break;
-            case ItemEnum.CreateMoreBulletsAtEnd: item = item_gameobjec.AddComponent<CreateMoreBulletsAtEndItem>(); break;
+            case ItemEnum.SangeAndYashar: item = item_gameobject.AddComponent<SangeAndYashar>(); break;
+            case ItemEnum.IncreaseBulletDamage: item = item_gameobject.AddComponent<IncreaseBulletDamageItem>(); break;
+            case ItemEnum.CreateMoreBulletsAtEnd: item = item_gameobject.AddComponent<CreateMoreBulletsAtEndItem>(); break;
+            case ItemEnum.IncreaseTowerDamageConstantlyForNextBullet: item = item_gameobject.AddComponent<IncreaseTowerDamageConstantlyItem>();break;
         }
         item.SetData(item_data);
         return item;
