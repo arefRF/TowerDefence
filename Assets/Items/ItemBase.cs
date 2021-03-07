@@ -12,10 +12,14 @@ public class ItemBase : MonoBehaviour
     /// <summary>
     /// call Base first
     /// </summary>
-    public virtual void Initialize(TowerBase tower, ItemData item_data) 
+    /// 
+    public void SetData(ItemData item_data)
+    {
+        item_data_ = item_data;
+    }
+    public virtual void Initialize(TowerBase tower) 
     {
         tower_ = tower;
-        item_data_ = item_data;
         tower_.ShootStartCallback += RegisterProjectileCallBacks;
         SetDataOnTower();
     }

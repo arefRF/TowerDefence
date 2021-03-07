@@ -20,7 +20,8 @@ public class TowerItemAdder : MonoBehaviour
             if(add_item_)
             {
                 add_item_ = false;
-                tower_inventory_.AddItemToFreeSlot(item_enum_);
+                var item = StaticItemCreator.sSinglton.CreateItem(item_enum_);
+                tower_inventory_.AddItemToFreeSlot(item);
             }
         }
     }

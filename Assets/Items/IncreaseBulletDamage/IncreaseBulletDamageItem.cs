@@ -7,9 +7,9 @@ public class IncreaseBulletDamageItem : ItemBase
 {
     private Dictionary<int, int> timer_id_dic;
 
-    public override void Initialize(TowerBase tower, ItemData item_data)
+    public override void Initialize(TowerBase tower)
     {
-        base.Initialize(tower, item_data);
+        base.Initialize(tower);
         timer_id_dic = new Dictionary<int, int>();
     }
     public override void RegisterProjectileCallBacks(ProjectileBase projectile)

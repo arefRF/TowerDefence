@@ -8,8 +8,6 @@ public class TowerInventory : MonoBehaviour
     private int inventory_capacity_;
     [SerializeField]
     private Transform item_parent_;
-    [SerializeField]
-    private GameObject item_base_object_;
 
     private TowerBase tower_;
     private ItemBase[] items_list_;
@@ -21,41 +19,25 @@ public class TowerInventory : MonoBehaviour
         items_list_ = new ItemBase[inventory_capacity_];
         current_items_count = 0;
     }
-    public void AddItem(ItemEnum item_enum, int index)
+
+    public void AddItem(ItemBase item, int index)
     {
         if (items_list_[index] != null)
         {
             Debug.LogError("slot: %index% is full. cant add item");
             return;
         }
-        var item = GameObject.Instantiate(item_base_object_, Vector3.zero, Quaternion.identity);
-        ItemBase component = null;
         item.transform.SetParent(item_parent_);
-        item.gameObject.name = item_enum.ToString();
-        switch (item_enum)
-        {
-            case ItemEnum.SangeAndYashar: component = item.AddComponent<SangeAndYashar>(); break;
-            case ItemEnum.IncreaseBulletDamage: component = item.AddComponent<IncreaseBulletDamageItem>(); break;
-            case ItemEnum.CreateMoreBulletsAtEnd: component = item.AddComponent<CreateMoreBulletsAtEndItem>(); break;
-        }
-        ItemData item_data = null;
-        for (int i = 0; i < StaticItemsData.sSingleton.items_data_list_.Count; i++)
-        {
-            if (StaticItemsData.sSingleton.items_data_list_[i].item_enum_ == item_enum)
-            {
-                item_data = StaticItemsData.sSingleton.items_data_list_[i];
-                break;
-            }
-        }
+        item.Initialize(tower_);
+        items_list_[index] = item;
         current_items_count++;
-        component.Initialize(tower_, item_data);
     }
 
-    public void AddItemToFreeSlot(ItemEnum item_enum)
+    public void AddItemToFreeSlot(ItemBase item)
     {
         int free_index;
         if (TryGetNetFreeSlot(out free_index))
-            AddItem(item_enum, free_index);
+            AddItem(item, free_index);
         else
             Debug.LogError("slot: " + free_index + "is full. cant add item");
     }
