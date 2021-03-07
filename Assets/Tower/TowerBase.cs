@@ -18,6 +18,9 @@ public class TowerBase : MonoBehaviour
     private UITileController ui_tile_;
     public UITileController pUITile { get { return ui_tile_; } }
 
+    public event TowerPreAttackEventHandler PreShootStartCallback;
+    public event TowerAttackEventHandler ShootStartCallback;
+
     public void Start()
     {
         InitializeOnStart();
@@ -33,12 +36,17 @@ public class TowerBase : MonoBehaviour
         UndeployTower();
     }
     
-    public event TowerAttackEventHandler ShootStartCallback;
 
     public void InvokeShootStartEvent(ProjectileBase projectile)
     {
         if(ShootStartCallback != null)
             ShootStartCallback.Invoke(projectile);
+    }
+
+    public void InvokePreShootStartEvent()
+    {
+        if(PreShootStartCallback != null)
+            PreShootStartCallback.Invoke();
     }
 
     public void DeployTower(UITileController ui_tile)
@@ -62,3 +70,4 @@ public class TowerBase : MonoBehaviour
 }
 
 public delegate void TowerAttackEventHandler(ProjectileBase projectile);
+public delegate void TowerPreAttackEventHandler();

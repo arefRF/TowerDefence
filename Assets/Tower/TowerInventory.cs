@@ -37,6 +37,7 @@ public class TowerInventory : MonoBehaviour
             case ItemEnum.SangeAndYashar: component = item.AddComponent<SangeAndYashar>(); break;
             case ItemEnum.IncreaseBulletDamage: component = item.AddComponent<IncreaseBulletDamageItem>(); break;
             case ItemEnum.CreateMoreBulletsAtEnd: component = item.AddComponent<CreateMoreBulletsAtEndItem>(); break;
+            case ItemEnum.IncreaseTowerDamageConstantlyForNextBullet: component = item.AddComponent<IncreaseTowerDamageConstantlyItem>(); break;
         }
         ItemData item_data = null;
         for (int i = 0; i < StaticItemsData.sSingleton.items_data_list_.Count; i++)

@@ -31,6 +31,7 @@ public class RangeWeapon : MonoBehaviour
     public void Shoot(GameObject target)
     {
         target_ = target.transform;
+        tower_.InvokePreShootStartEvent();
         ShootUtility.Shoot(target_, tower_, transform, 0);
     }
 }
