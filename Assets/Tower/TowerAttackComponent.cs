@@ -51,7 +51,7 @@ public class TowerAttackComponent : MonoBehaviour
 
     private void AcquireTarget()
     {
-        target_ = EnemyManager.sSingletone.GetFurthestEnemy(transform.position);
+        target_ = EnemyManager.sSingletone.GetRandomEnemy();
     }
 
 }
