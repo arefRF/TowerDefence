@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats_:
   - stat_enum_: 1
-    value_: 1
+    value_: 0
   - stat_enum_: 3
     value_: 50
   - stat_enum_: 5

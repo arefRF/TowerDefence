@@ -21,7 +21,8 @@ public class CreateMoreBulletsAtEndItem : ItemBase
         for(int i=0; i < count; i++)
         {
             var target = EnemyManager.sSingletone.GetRandomEnemy();
-            ShootUtility.Shoot(target.transform, tower_, projectile.transform, projectile.pOrder + 1);
+            var damage = projectile.GetComponent<ProjectileStat>().FindStat(StatEnum.Damage).value_;
+            ShootUtility.Shoot(target.transform, tower_, projectile.transform, projectile.pOrder + 1, damage);
         }
     }
 }
