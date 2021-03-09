@@ -9,8 +9,6 @@ public class ItemSlotUI : MonoBehaviour
     [SerializeField]
     private Image frame_, icon_;
 
-    private static readonly Color sNormalColor = new Color(0.5f, 0.5f, 0.5f);
-    private static readonly Color sHighlightColor = new Color(0.7f, 0.7f, 0.7f);
     public enum SlotMode {Empty,Full,Draged}
     public SlotMode pMode { get; private set; }
     public ItemBase pItem { get; private set; }
@@ -40,19 +38,20 @@ public class ItemSlotUI : MonoBehaviour
         entry_dehighlight.eventID = EventTriggerType.PointerExit;
         entry_dehighlight.callback.AddListener((data) => { OnDehighlightDelegate((PointerEventData)data); });
         trigger.triggers.Add(entry_dehighlight);
-        frame_.color = sNormalColor;
+
+        frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
     }
     private void OnPressDelegate(PointerEventData data)
     {
     }
     private void OnHighlightDelegate(PointerEventData data)
     {
-        frame_.color = sHighlightColor;
+        frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.HighlightFrame);
         UIManager.sSingleton.pActiveSlot = this;
     }
     private void OnDehighlightDelegate(PointerEventData data)
     {
-        frame_.color = sNormalColor;
+        frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
         UIManager.sSingleton.pActiveSlot = null;
     }
     private void OnDragDelegate(PointerEventData data)

@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     private InventoryUI player_inventory_ui_;
     [SerializeField]
     private InventoryUI tower_inventory_ui_;
+    [SerializeField]
+    private TowerButton[] tower_buttons_;
 
     public int pCurrentTowerIndex { get; private set; }
 
@@ -30,7 +32,15 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         player_inventory_ui_.SetupInventory(PlayerInventory.sSingleton);
-        tower_inventory_ui_.SetupInventory(TowerManager.sSingleton.pTowers[pCurrentTowerIndex].pInventory);
+        SetIndexTowerButtons();
+        SelectTower(0);
+    }
+    private void SetIndexTowerButtons()
+    {
+        for(int i = 0; i < tower_buttons_.Length; i++)
+        {
+            tower_buttons_[i].SetIndex(i);
+        }
     }
     public void ActiveDragMode(ItemSlotUI slot)
     {
@@ -70,5 +80,12 @@ public class UIManager : MonoBehaviour
             }
             DeactiveDragMode();
         }
+    }
+    public void SelectTower(int index)
+    {
+        tower_buttons_[pCurrentTowerIndex].SetSelected(false);
+        pCurrentTowerIndex = index;
+        tower_buttons_[pCurrentTowerIndex].SetSelected(true);
+        tower_inventory_ui_.SetupInventory(TowerManager.sSingleton.pTowers[pCurrentTowerIndex].pInventory);
     }
 }
