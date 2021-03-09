@@ -19,5 +19,5 @@ MonoBehaviour:
   supported_order_: 0
   visual_modifier_list_: 
   stats_:
-  - stat_enum_: 9
+  - stat_enum_: 10
     value_: 2
