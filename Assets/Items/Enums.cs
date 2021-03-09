@@ -9,6 +9,6 @@ public class Enums
 
 public enum ItemEnum
 {
-    SangeAndYashar, IncreaseBulletDamage, CreateMoreBulletsAtEnd, IncreaseTowerDamageConstantlyForNextBullet, TowerShootsMoreBullets
+    SangeAndYashar, IncreaseBulletDamage, CreateMoreBulletsAtEnd, IncreaseTowerDamageConstantlyForNextBullet, TowerShootsMoreBullets, ExplodeWhenHit
 }
  

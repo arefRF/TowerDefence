@@ -172,9 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats_:
   - stat_enum_: 2
-    value_: 2
-  - stat_enum_: 1
     value_: 1
+  - stat_enum_: 3
+    value_: 2
 --- !u!114 &7197246938695028970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +217,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory_capacity_: 6
   item_parent_: {fileID: 7809607788924594704}
-  item_base_object_: {fileID: 4964958019185705220, guid: 7b6838d6c9f4dd44386cd0614848a7f3, type: 3}
 --- !u!114 &7809607789620669396
 MonoBehaviour:
   m_ObjectHideFlags: 0

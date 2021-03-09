@@ -13,5 +13,9 @@ public class StaticDataContainer : MonoBehaviour
 
     [SerializeField]
     private GameObject projectile_prefab_;
-    public GameObject pProjectilePrefab { get { return projectile_prefab_;} }
+    public GameObject pProjectilePrefab { get { return projectile_prefab_;} } 
+
+    [SerializeField]
+    private GameObject explosion_prefab_;
+    public GameObject pExplosionPrefab { get { return explosion_prefab_; } }
 }

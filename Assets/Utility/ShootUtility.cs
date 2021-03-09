@@ -16,4 +16,11 @@ public class ShootUtility
         stat.FindStat(StatEnum.Damage).value_ = damage;
         projectile.Shoot(target, tower, direction, order);
     }
+
+    public static void CreateExplosion(Vector3 position, Quaternion rotation, float radius, float damage)
+    {
+        var explosion = GameObject.Instantiate(StaticDataContainer.sSingleton.pExplosionPrefab, position, rotation).GetComponent<ExplosiveComponent>();
+        explosion.Explode(radius, damage);
+
+    }
 }
