@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tower Shoots When Last Bullet Hits Item - ItemData
   m_EditorClassIdentifier: 
   item_enum_: 4
-  icon_: {fileID: 21300000, guid: 13c0b5ee0531e854d90ab015a5c41cb3, type: 3}
+  icon_: {fileID: 21300000, guid: eb10cc533fa5e0f4cbb9f24f13d8424c, type: 3}
   name_: More Bullets
   description_: Tower Shoots More Bullets
   supported_order_: 0
