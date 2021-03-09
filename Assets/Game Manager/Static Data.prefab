@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6673460157216539433}
   - component: {fileID: 6673460157216539435}
   - component: {fileID: 4269959982417169176}
+  - component: {fileID: 525571678432804752}
   m_Layer: 0
   m_Name: Static Data
   m_TagString: Untagged
@@ -50,6 +51,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4b497a745d988846be136cfb27d4942, type: 2}
   - {fileID: 11400000, guid: 50ac7aa02e1193f438e2261caa35737e, type: 2}
   - {fileID: 11400000, guid: 3d0abdf4f3dbaac488e826c0f6481fda, type: 2}
+  - {fileID: 11400000, guid: 8f86fd4aa5f534b49ac5079cc36b6732, type: 2}
+  - {fileID: 11400000, guid: dcc5359038e2b684cb3d1fe4cf25cd90, type: 2}
 --- !u!114 &6673460157216539435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,6 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile_prefab_: {fileID: 5887643317680509428, guid: de7fe8002b54e0f4cab0384573c03f66, type: 3}
+  explosion_prefab_: {fileID: 2950779811843452071, guid: 1ca14dde7b1d907449e86aaa73d18250, type: 3}
 --- !u!114 &4269959982417169176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,3 +80,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   add_all_on_start_: 1
+--- !u!114 &525571678432804752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6673460157216539432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8821977190afeb42b01f66ed250db5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_hit_vfx_: {fileID: 100002, guid: 9ebe42514b919a04f86f35aca8d8adb8, type: 3}

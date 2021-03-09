@@ -173,6 +173,8 @@ MonoBehaviour:
   stats_:
   - stat_enum_: 2
     value_: 1
+  - stat_enum_: 3
+    value_: 2
 --- !u!114 &7197246938695028970
 MonoBehaviour:
   m_ObjectHideFlags: 0

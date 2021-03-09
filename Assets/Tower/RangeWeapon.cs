@@ -32,6 +32,7 @@ public class RangeWeapon : MonoBehaviour
     {
         target_ = target.transform;
         tower_.InvokePreShootStartEvent();
-        ShootUtility.Shoot(target_, tower_, transform, 0);
+        var damage = tower_.pStatComponent.FindStat(StatEnum.Damage).value_;
+        ShootUtility.Shoot(target_, tower_, transform, 0, damage);
     }
 }

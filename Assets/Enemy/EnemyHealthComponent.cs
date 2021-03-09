@@ -12,6 +12,7 @@ public class EnemyHealthComponent : MonoBehaviour
     }
     public void DoDamage(float damage)
     {
+        VFXManager.sSingleton.InstantiateAndPlayVFX(StaticVFXContainer.sSingleton.pEnemyHitVFX, transform.position, transform.rotation);
         enemy_.pStats.IncrementStat(EnemyStatEnum.HP, -damage);
         var hp = enemy_.pStats.FindStat(EnemyStatEnum.HP).value_;
         if(hp <= 0)

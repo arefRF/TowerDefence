@@ -14,6 +14,8 @@ public class TowerAttackComponent : MonoBehaviour
     [SerializeField]
     private float time_to_next_attack_;
 
+    private bool pCanshoot;
+
     public void Start()
     {
         InitializeOnStart();
@@ -30,6 +32,7 @@ public class TowerAttackComponent : MonoBehaviour
         stats_ = tower_.pStatComponent;
         weapon_ = tower_.pWeapon;
         time_to_next_attack_ = stats_.FindStat(StatEnum.AttackTime).value_;
+        pCanshoot = true;
     }
 
     public void UpdateState()
@@ -38,7 +41,8 @@ public class TowerAttackComponent : MonoBehaviour
         if(time_to_next_attack_ <= 0)
         {
             time_to_next_attack_ = stats_.FindStat(StatEnum.AttackTime).value_;
-            Shoot();
+            if(pCanshoot)
+                Shoot();
         }
     }
 
@@ -51,7 +55,7 @@ public class TowerAttackComponent : MonoBehaviour
 
     private void AcquireTarget()
     {
-        target_ = EnemyManager.sSingletone.GetFurthestEnemy(transform.position);
+        target_ = EnemyManager.sSingletone.GetRandomEnemy();
     }
 
 }

@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 1371050803243029990}
   - component: {fileID: 80132359693714182}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy - Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination_: {fileID: 0}
-  max_distance_: 0.06
+  max_distance_: 0.03
 --- !u!114 &7034841061832549956
 MonoBehaviour:
   m_ObjectHideFlags: 0
