@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Hive.Projectile;
 
-public class TowerShootsMoreBulletsItem : ItemBase
+public class TowerShootsWhenLastBulletHitsItem : ItemBase
 {
     public override void SetDataOnTower()
     {
