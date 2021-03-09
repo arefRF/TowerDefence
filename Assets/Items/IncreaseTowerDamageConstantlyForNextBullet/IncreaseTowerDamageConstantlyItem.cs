@@ -9,9 +9,9 @@ public class IncreaseTowerDamageConstantlyItem : ItemBase
     private float interval_;
     private float damage_;
 
-    public override void Initialize(TowerBase tower)
+    public override void AddToTower(TowerBase tower)
     {
-        base.Initialize(tower);
+        base.AddToTower(tower);
         last_shoot_time_ = Time.time;
         interval_ = pItemData.FindStat(StatEnum.Interval).value_;
         damage_ = pItemData.FindStat(StatEnum.Damage).value_;

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    public static TowerManager sSingleton;
+    public static TowerManager sSingleton { get; private set; }
     [SerializeField]
     private List<TowerBase> undeployed_towers_list_;
     [SerializeField]
     private List<TowerBase> deployed_towers_list_;
-
-
+    [SerializeField]
+    private List<TowerBase> towers_list_;
+    public List<TowerBase> pTowers { get { return towers_list_; } }
     private void Awake()
     {
         sSingleton = this;
-
+        for (int i = 0; i < towers_list_.Count; i++)
+            undeployed_towers_list_.Add(towers_list_[i]);
     }
 
     public TowerBase GetUndeployedTowerAt(Vector3 position)

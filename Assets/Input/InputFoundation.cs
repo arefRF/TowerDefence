@@ -28,5 +28,10 @@ public class InputFoundation : MonoBehaviour
         {
             GameManager.sSingleton.TabPressed();
         }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            UIManager.sSingleton.PointerUp();
+        }
     }
 }

@@ -30,7 +30,7 @@ public class ItemBase : MonoBehaviour
     {
         pItemData = item_data;
     }
-    public virtual void Initialize(TowerBase tower)
+    public virtual void AddToTower(TowerBase tower)
     {
         tower_ = tower;
         tower_.ShootStartCallback += RegisterProjectileCallBacks;
@@ -40,12 +40,10 @@ public class ItemBase : MonoBehaviour
     /// <summary>
     /// call Base first
     /// </summary>
-    public virtual void OnRelease()
+    public virtual void RemoveFromTower()
     {
-        tower_ = null;
-        pItemData = null;
         UnSetDataOnTower();
-        Destroy(gameObject);
+        tower_ = null;
     }
     public virtual void SetDataOnTower() { }
     public virtual void UnSetDataOnTower() { }

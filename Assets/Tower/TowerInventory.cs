@@ -11,10 +11,10 @@ public class TowerInventory : InventoryBase
     }
     protected override void FinalizeAddingItem(ItemBase item)
     {
-        item.Initialize(pTower);
+        item.AddToTower(pTower);
     }
     protected override void FinalizeRemovingItem(ItemBase item)
     {
-        item.OnRelease();
+        item.RemoveFromTower();
     }
 }

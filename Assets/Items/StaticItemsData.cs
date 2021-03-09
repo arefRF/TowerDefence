@@ -6,7 +6,7 @@ public class StaticItemsData : MonoBehaviour
     public static StaticItemsData sSingleton;
 
     public List<ItemData> items_data_list_;
-    void Start()
+    void Awake()
     {
         sSingleton = this;
     }

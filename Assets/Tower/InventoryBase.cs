@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,9 @@ public class InventoryBase : MonoBehaviour
     private Transform item_parent_;
 
     private ItemBase[] items_;
+    public ItemBase[] pItems => items_;
+
+    public Action<int> OnSlotChanged;
 
     protected virtual void Awake()
     {
@@ -34,6 +38,7 @@ public class InventoryBase : MonoBehaviour
         item.transform.SetParent(item_parent_);
         items_[index] = item;
         item.SetInvetoryData(this, index);
+        OnSlotChanged?.Invoke(index);
         FinalizeAddingItem(item);
     }
     protected virtual void FinalizeAddingItem(ItemBase item)
@@ -58,6 +63,7 @@ public class InventoryBase : MonoBehaviour
         if(item != null)
         {
             items_[index] = null;
+            OnSlotChanged?.Invoke(index);
             FinalizeRemovingItem(item);
         }
     }
