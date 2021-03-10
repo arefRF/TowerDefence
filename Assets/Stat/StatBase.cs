@@ -23,5 +23,5 @@ public enum StatEnum
     Count = 10,
     Radius = 11,
     DamageMultiplier = 12,
-    
+    Duration = 13,
 }

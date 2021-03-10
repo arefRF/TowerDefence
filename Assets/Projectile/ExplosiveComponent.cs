@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class ExplosiveComponent : MonoBehaviour
 {
-    private ProjectileStat stat_;
+    private StatComponent stat_;
     private VFXEventHandler event_handler_;
 
     private ParticleSystem particle_system_;
     // Start is called before the first frame update
     public void Initialize()
     {
-        stat_ = GetComponent<ProjectileStat>();
+        stat_ = GetComponent<StatComponent>();
         event_handler_ = GetComponent<VFXEventHandler>();
         particle_system_ = GetComponentInChildren<ParticleSystem>();
     }
 
     protected virtual void DamageCallBack()
     {
-        var enemies = EnemyManager.sSingletone.GetAllEnemiesInRadius(transform.position, stat_.FindStat(StatEnum.Radius).value_);
+        var enemies = EnemyManager.sSingleton.GetAllEnemiesInRadius(transform.position, stat_.FindStat(StatEnum.Radius).value_);
         var damage = stat_.FindStat(StatEnum.Damage).value_;
         for(int i=0; i < enemies.Count; i++)
         {

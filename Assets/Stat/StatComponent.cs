@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileStat : MonoBehaviour
+public class StatComponent : MonoBehaviour
 {
     [SerializeField]
     private List<StatBase> stats_;
@@ -23,5 +23,12 @@ public class ProjectileStat : MonoBehaviour
         var stat = FindStat(stat_enum);
         if(stat != null)
             stat.value_ *= multiplier;
+    }
+
+    public void IncrementStat(StatEnum stat_enum, float value)
+    {
+        var stat = FindStat(stat_enum);
+        if(stat != null)
+            stat.value_ += value;
     }
 }

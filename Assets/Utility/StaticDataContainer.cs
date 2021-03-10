@@ -18,4 +18,8 @@ public class StaticDataContainer : MonoBehaviour
     [SerializeField]
     private GameObject explosion_prefab_;
     public GameObject pExplosionPrefab { get { return explosion_prefab_; } }
+    
+    [SerializeField]
+    private GameObject dark_aura_prefab_;
+    public GameObject pDarkAuraPrefab { get { return dark_aura_prefab_; } }
 }

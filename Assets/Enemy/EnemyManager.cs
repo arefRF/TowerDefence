@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager sSingletone;
+    public static EnemyManager sSingleton;
 
 
     private List<EnemyBase> enemies_;
     void Start() 
     {
-        if(sSingletone != null)
+        if(sSingleton != null)
         Debug.LogError("there are more than one " + gameObject, gameObject);
-        sSingletone = this;
+        sSingleton = this;
 
         enemies_ = new List<EnemyBase>();
     }

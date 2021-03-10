@@ -13,8 +13,8 @@ namespace Hive.Projectile
         public int pOrder { get { return order_; } }
 
         [SerializeField]
-        private ProjectileStat stats_;
-        public ProjectileStat pStatComponent { get { return stats_; } }
+        private StatComponent stats_;
+        public StatComponent pStatComponent { get { return stats_; } }
         private TowerBase tower_;
         private Vector3 direction_;
         private float current_speed_;

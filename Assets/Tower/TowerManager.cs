@@ -80,4 +80,15 @@ public class TowerManager : MonoBehaviour
             tower.UndeployTower();
         }
     }
+
+    public List<TowerBase> GetAllTowersInRadius(Vector3 center_position, float radius)
+    {
+        List<TowerBase> towers = new List<TowerBase>();
+        foreach(var tower in towers_list_)
+        {
+            if(Vector3.Distance(center_position, tower.transform.position) <= radius + Mathf.Epsilon)
+            towers.Add(tower);
+        }
+        return towers;
+    }
 }

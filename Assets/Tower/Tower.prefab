@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 307440902494328221}
   - component: {fileID: 7809607789620669399}
   - component: {fileID: 7809607789620669396}
+  - component: {fileID: 5711438883393751177}
   m_Layer: 0
   m_Name: Logic
   m_TagString: Untagged
@@ -175,6 +176,8 @@ MonoBehaviour:
     value_: 1
   - stat_enum_: 3
     value_: 2
+  - stat_enum_: 1
+    value_: 1000
 --- !u!114 &7197246938695028970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +234,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   add_item_: 0
   item_enum_: 0
+--- !u!114 &5711438883393751177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916128722613711104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f2d5e4b383e11440864f8a095224776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2628878364443163108
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,10 +9,14 @@ public class MoveTest : MonoBehaviour
     public NodePoint destination_;
     [SerializeField]
     private float max_distance_;
+
+    public Delegate_NoArgument OnDestinationchanged;
+
+    private EnemyBase enemy_base_;
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemy_base_ = GetComponent<EnemyBase>();
     }
 
     // Update is called once per frame
@@ -23,8 +27,10 @@ public class MoveTest : MonoBehaviour
             destination_ = destination_.parent_;
             if(destination_ == null)
             {
-                Release();
+                enemy_base_.Release();
             }
+            else
+                OnDestinationchanged?.Invoke();
         }
         else
         {
@@ -35,12 +41,5 @@ public class MoveTest : MonoBehaviour
     private int DistanceTo(Vector3 vector)
     {
         return (int)Vector3.Distance(transform.position, vector);
-    }
-
-    public void Release()
-    {
-        EnemyManager.sSingletone.RemoveEnemyFromList(GetComponent<EnemyBase>());
-        gameObject.SetActive(false);
-        Destroy(gameObject);
     }
 }

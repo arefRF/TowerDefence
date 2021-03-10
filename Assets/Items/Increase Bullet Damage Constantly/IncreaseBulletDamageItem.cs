@@ -25,7 +25,7 @@ public class IncreaseBulletDamageItem : ItemBase
     {
         int timer_id;
         var interval = pItemData.FindStat(StatEnum.Interval);
-        Timer.RegisterTimer(IncreaseDamage, interval.value_, -1, projectile, out timer_id);
+        Timer.RegisterTimer_TowerattackEvent(IncreaseDamage, interval.value_, -1, projectile, out timer_id);
         timer_id_dic.Add(projectile.pId, timer_id);
     }
     public void IncreaseDamage(ProjectileBase projectile)

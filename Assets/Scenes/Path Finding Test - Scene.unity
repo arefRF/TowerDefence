@@ -7079,13 +7079,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_prefab_list_:
-  - {fileID: 573761462586553303, guid: e8941ad256f9e0f4fb24cd61d3ac34d6, type: 3}
-  - {fileID: 573761462586553303, guid: 281dd2bb0af94a448a04272997039bfe, type: 3}
+  - enemy_object_: {fileID: 573761462586553303, guid: e8941ad256f9e0f4fb24cd61d3ac34d6, type: 3}
+    chance_: 3
+  - enemy_object_: {fileID: 573761462586553303, guid: 281dd2bb0af94a448a04272997039bfe, type: 3}
+    chance_: 2
+  - enemy_object_: {fileID: 7866695329931283538, guid: fd24540b593514c42aa6bbdfdb8da6dc, type: 3}
+    chance_: 1
   enemy_parent_: {fileID: 1838771764}
   spawner_point_:
   - {fileID: 551507226}
   - {fileID: 619507186}
-  spawn_interval_: 0.25
+  spawn_interval_: 0.2
 --- !u!114 &1747819513
 MonoBehaviour:
   m_ObjectHideFlags: 0

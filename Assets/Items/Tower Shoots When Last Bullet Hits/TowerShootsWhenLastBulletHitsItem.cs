@@ -24,7 +24,7 @@ public class TowerShootsWhenLastBulletHitsItem : ItemBase
         var damage = tower_.pStatComponent.FindStat(StatEnum.Damage).value_;
         for(int i = 0; i < count; i++)
         {
-            var target = EnemyManager.sSingletone.GetRandomEnemy();
+            var target = EnemyManager.sSingleton.GetRandomEnemy();
             ShootUtility.Shoot(target.transform, tower_, tower_.transform, 0, damage);
         }
     }

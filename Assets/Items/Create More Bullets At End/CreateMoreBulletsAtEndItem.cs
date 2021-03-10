@@ -20,8 +20,8 @@ public class CreateMoreBulletsAtEndItem : ItemBase
         var count = pItemData.FindStat(StatEnum.Count).value_;
         for(int i=0; i < count; i++)
         {
-            var target = EnemyManager.sSingletone.GetRandomEnemy();
-            var damage = projectile.GetComponent<ProjectileStat>().FindStat(StatEnum.Damage).value_;
+            var target = EnemyManager.sSingleton.GetRandomEnemy();
+            var damage = projectile.GetComponent<StatComponent>().FindStat(StatEnum.Damage).value_;
             ShootUtility.Shoot(target.transform, tower_, projectile.transform, projectile.pOrder + 1, damage);
         }
     }

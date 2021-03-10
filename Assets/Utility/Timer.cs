@@ -8,12 +8,12 @@ public class Timer : MonoBehaviour
 {
     public static Timer sSingleton;
     private static int counter = 1;
-    private List<TimerStrcut> timer_list_;
+    private List<TimerInstanceBase> timer_list_;
 
     void Start()
     {
         sSingleton = this;
-        timer_list_ = new List<TimerStrcut>();
+        timer_list_ = new List<TimerInstanceBase>();
     }
     void Update()
     {
@@ -27,13 +27,6 @@ public class Timer : MonoBehaviour
                 i--;
             }
         }   
-    }
-    public static void RegisterTimer(TowerAttackEventHandler action, float interval, int call_count, ProjectileBase projectile, out int id)
-    {
-        id = counter;
-        counter++;
-        var timer = new TimerStrcut(action, Time.time, interval, call_count, id, projectile);
-        sSingleton.timer_list_.Add(timer);
     }
 
     public static void UnregisterTimer(int id)
@@ -49,27 +42,39 @@ public class Timer : MonoBehaviour
         Debug.LogError("timer not found. id: " + id);
     }
 
-    
-
-
-    private class TimerStrcut
+    public static void RegisterTimer_TowerattackEvent(TowerAttackEventHandler action, float interval, int call_count, ProjectileBase projectile, out int id)
     {
-        private TowerAttackEventHandler action_;
+        id = counter;
+        counter++;
+        var timer = new TimerInstance_TowerAttackEvent(action, Time.time, interval, call_count, id, projectile);
+        sSingleton.timer_list_.Add(timer);
+    }
+
+    public static void RegisterTimer_NoArgumentEvent(Delegate_NoArgument action, float interval, int call_count, out int id)
+    {
+        id = counter;
+        counter++;
+        var timer = new TimerInstance_NoArgumentEvent(action, Time.time, interval, call_count, id);
+        sSingleton.timer_list_.Add(timer);
+    }
+
+
+    private class TimerInstanceBase
+    {
+        
         private float last_invoke_time_;
         private float interval_;
         private int call_count_;
         private int id_;
         public int pId { get { return id_; } }
-        private ProjectileBase projectile_;
+        
 
-        public TimerStrcut(TowerAttackEventHandler action, float last_invoke_time, float interval, int call_count, int id, ProjectileBase projectile)
+        public TimerInstanceBase(float last_invoke_time, float interval, int call_count, int id)
         {
-            action_ = action;
             last_invoke_time_ = last_invoke_time;
             interval_ = interval;
             call_count_ = call_count;
-            id_ = id;
-            projectile_ = projectile;
+            id_ = id;   
         }
 
         public void CheckInvoke(out bool remove_from_list)
@@ -80,10 +85,46 @@ public class Timer : MonoBehaviour
                 last_invoke_time_ = Time.time;
                 if(call_count_ > 0)
                     call_count_--;
-                action_(projectile_);
+                Invoke();
                 if(call_count_ == 0)
                     remove_from_list = true;
             }
+        }
+        
+        protected virtual void Invoke() { }
+    }
+
+    private class TimerInstance_TowerAttackEvent : TimerInstanceBase
+    {
+        private ProjectileBase projectile_;
+        private TowerAttackEventHandler action_;
+
+        public TimerInstance_TowerAttackEvent(TowerAttackEventHandler action, float last_invoke_time, float interval, int call_count, int id, ProjectileBase projectile)
+        : base(last_invoke_time, interval, call_count, id)
+        {
+            projectile_ = projectile;
+            action_ = action;
+        }
+
+        protected override void Invoke()
+        {
+            action_(projectile_);
+        }
+    }
+
+    private class TimerInstance_NoArgumentEvent : TimerInstanceBase
+    {
+        private Delegate_NoArgument action_;
+
+        public TimerInstance_NoArgumentEvent(Delegate_NoArgument action, float last_invoke_time, float interval, int call_count, int id)
+        : base(last_invoke_time, interval, call_count, id)
+        {
+            action_ = action;
+        }
+
+        protected override void Invoke()
+        {
+            action_();
         }
     }
 }

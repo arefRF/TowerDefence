@@ -5,33 +5,45 @@ using UnityEngine;
 public class EnemyAttackComponent_DarkSplash : MonoBehaviour
 {
     private EnemyBase enemy_;
-    private EnemyStatComponent stat_;
+    private StatComponent stat_;
 
     private float last_attack_time_;
     private float interval_;
+    private List<AreaDPSWeaponComponent> dps_components_;
     void Start()
     {
         enemy_ = GetComponent<EnemyBase>();
-        stat_ = enemy_.pStats;
-        last_attack_time_ = Time.time;
-        interval_ = stat_.FindStat(StatEnum.Interval).value_;
+        enemy_.pMoveComponent.OnDestinationchanged += Attack;
+        enemy_.OnRelease += OnRelease;
+        dps_components_ = new List<AreaDPSWeaponComponent>();
     }
 
-    void Update()
+    private void OnRelease()
     {
-        if(last_attack_time_ + interval_ >= Time.time) 
+        ClearPrevAttacks();
+    }
+
+    public void Attack()
+    {
+        ClearPrevAttacks();
+        var this_tile = MapTools.GetNearestTile(transform.position);
+        var neighbors = MapTools.GetNeighborTiles(this_tile);
+        foreach (var tile in neighbors)
         {
-            last_attack_time_ = Time.time;
-            Attack();
+            if(tile.type_ == TileType.Ground)
+            {
+                var component = Instantiate(StaticDataContainer.sSingleton.pDarkAuraPrefab, tile.transform.position, tile.transform.rotation).GetComponent<AreaDPSWeaponComponent>();
+                component.Initialize();
+                component.StartWeapon();
+                dps_components_.Add(component);
+            }
         }
     }
 
-    private void Attack() 
+    private void ClearPrevAttacks()
     {
-        var tiles = MapTools.GetNeighborTiles(transform.position, Map.sSingleton.tile_size_);
-        for(int i=0; i < tiles.Count; i++) 
-        {
-
-        }
+        foreach(var component in dps_components_)
+            component.StopWeapon();
+        dps_components_.Clear();
     }
 }

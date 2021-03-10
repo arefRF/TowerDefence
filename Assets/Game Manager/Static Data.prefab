@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile_prefab_: {fileID: 5887643317680509428, guid: de7fe8002b54e0f4cab0384573c03f66, type: 3}
   explosion_prefab_: {fileID: 2950779811843452071, guid: 1ca14dde7b1d907449e86aaa73d18250, type: 3}
+  dark_aura_prefab_: {fileID: 7110420003510610359, guid: a81c1c7e3ee9a934cbd9780d74c30ee3, type: 3}
 --- !u!114 &4269959982417169176
 MonoBehaviour:
   m_ObjectHideFlags: 0

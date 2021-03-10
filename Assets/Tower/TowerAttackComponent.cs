@@ -6,7 +6,7 @@ using Hive.Projectile;
 public class TowerAttackComponent : MonoBehaviour
 {
     private TowerBase tower_;
-    private TowerStatComponent stats_;
+    private StatComponent stats_;
     private RangeWeapon weapon_;
 
     private EnemyBase target_;
@@ -55,7 +55,7 @@ public class TowerAttackComponent : MonoBehaviour
 
     private void AcquireTarget()
     {
-        target_ = EnemyManager.sSingletone.GetRandomEnemy();
+        target_ = EnemyManager.sSingleton.GetRandomEnemy();
     }
 
 }

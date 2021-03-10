@@ -9,11 +9,12 @@ public class TowerBase : MonoBehaviour
     public TowerAttackComponent pAttackComponent { get { return attack_component_; } }
     private TowerSenseComponent sense_component_;
     public TowerSenseComponent pSenseComponent { get { return sense_component_; } }
-    private TowerStatComponent stat_component_;
-    public TowerStatComponent pStatComponent { get { return stat_component_; } }
+    private StatComponent stat_component_;
+    public StatComponent pStatComponent { get { return stat_component_; } }
     private RangeWeapon weapon_;
     public RangeWeapon pWeapon { get { return weapon_; } }
-
+    private TowerHealthComponent health_component_;
+    public TowerHealthComponent pHealthComponent { get { return health_component_; } }
     private Vector3 initial_position;
     private UITileController ui_tile_;
     public UITileController pUITile { get { return ui_tile_; } }
@@ -31,8 +32,9 @@ public class TowerBase : MonoBehaviour
     {
         attack_component_ = GetComponent<TowerAttackComponent>();
         sense_component_ = GetComponent<TowerSenseComponent>();
-        stat_component_ = GetComponent<TowerStatComponent>();    
+        stat_component_ = GetComponent<StatComponent>();    
         weapon_ = GetComponent<RangeWeapon>();
+        health_component_ = GetComponent<TowerHealthComponent>();
         pInventory = GetComponent<TowerInventory>();
         pInventory.SetTower(this);
         initial_position = transform.position;

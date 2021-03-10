@@ -212,7 +212,7 @@ public class Map : MonoBehaviour
         return false;
     }
 
-    private TileBase GetNeightborTile(TileBase tile, Direction direction)
+    public TileBase GetNeightborTile(TileBase tile, Direction direction)
     {
         switch (direction)
         {
