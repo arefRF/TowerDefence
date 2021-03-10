@@ -11,7 +11,7 @@ public class Map : MonoBehaviour
     [SerializeField]
     private GameObject tiles_parent_;
     [SerializeField]
-    private int tile_size_;
+    public int tile_size_;
     [SerializeField]
     private GameObject node_stone_;
     [SerializeField]
