@@ -16,7 +16,7 @@ public class ExplosiveComponent : MonoBehaviour
         particle_system_ = GetComponentInChildren<ParticleSystem>();
     }
 
-    private void DamageCallBack()
+    protected virtual void DamageCallBack()
     {
         var enemies = EnemyManager.sSingletone.GetAllEnemiesInRadius(transform.position, stat_.FindStat(StatEnum.Radius).value_);
         var damage = stat_.FindStat(StatEnum.Damage).value_;
@@ -26,7 +26,7 @@ public class ExplosiveComponent : MonoBehaviour
         }
     }
 
-    public void Explode(float radius, float damage)
+    public virtual void Explode(float radius, float damage)
     {
         Initialize();
         stat_.FindStat(StatEnum.Radius).value_ = radius;

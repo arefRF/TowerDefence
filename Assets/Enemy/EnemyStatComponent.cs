@@ -7,7 +7,7 @@ public class EnemyStatComponent : MonoBehaviour
     [SerializeField]
     private List<EnemyStatBase> stats_;
 
-     public EnemyStatBase FindStat(EnemyStatEnum stat_enum)
+     public EnemyStatBase FindStat(StatEnum stat_enum)
     {
         for(int i=0; i<stats_.Count; i++)
         {
@@ -18,14 +18,14 @@ public class EnemyStatComponent : MonoBehaviour
         return null;
     }
 
-    public void MultiplyStat(EnemyStatEnum stat_enum, float multiplier)
+    public void MultiplyStat(StatEnum stat_enum, float multiplier)
     {
         var stat = FindStat(stat_enum);
         if(stat != null)
             stat.value_ *= multiplier;
     }
 
-    public void IncrementStat(EnemyStatEnum stat_enum, float value)
+    public void IncrementStat(StatEnum stat_enum, float value)
     {
         var stat = FindStat(stat_enum);
         if(stat != null)
@@ -33,14 +33,9 @@ public class EnemyStatComponent : MonoBehaviour
     }
 }
 
-public enum EnemyStatEnum
-{
-    HP, MoveSpeed, 
-}
-
 [System.Serializable]
 public class EnemyStatBase
 {
-    public EnemyStatEnum stat_enum_;
+    public StatEnum stat_enum_;
     public float value_;
 }

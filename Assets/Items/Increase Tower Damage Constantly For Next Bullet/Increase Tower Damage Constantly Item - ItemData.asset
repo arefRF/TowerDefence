@@ -19,7 +19,7 @@ MonoBehaviour:
   supported_order_: 0
   visual_modifier_list_: 
   stats_:
-  - stat_enum_: 1
-    value_: 2
-  - stat_enum_: 8
+  - stat_enum_: 2
+    value_: 1.04
+  - stat_enum_: 9
     value_: 0.2
