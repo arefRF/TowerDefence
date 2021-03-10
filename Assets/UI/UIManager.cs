@@ -12,7 +12,8 @@ public class UIManager : MonoBehaviour
 
     public ItemSlotUI pCurrentSlot { get; private set; }
     public ItemSlotUI pActiveSlot { get; set; }
-
+    [SerializeField]
+    private RectTransform canvas_rect_;
     [SerializeField]
     private Image drag_image_;
     [SerializeField]
@@ -21,6 +22,8 @@ public class UIManager : MonoBehaviour
     private InventoryUI tower_inventory_ui_;
     [SerializeField]
     private TowerButton[] tower_buttons_;
+    [SerializeField]
+    private DescriptionPanel description_panel_;
 
     public int pCurrentTowerIndex { get; private set; }
 
@@ -37,7 +40,7 @@ public class UIManager : MonoBehaviour
     }
     private void SetIndexTowerButtons()
     {
-        for(int i = 0; i < tower_buttons_.Length; i++)
+        for (int i = 0; i < tower_buttons_.Length; i++)
         {
             tower_buttons_[i].SetIndex(i);
         }
@@ -68,9 +71,9 @@ public class UIManager : MonoBehaviour
     }
     public void PointerUp()
     {
-        if(pMode == UIMode.Drag)
+        if (pMode == UIMode.Drag)
         {
-            if(pActiveSlot != null)
+            if (pActiveSlot != null)
             {
                 pActiveSlot.AddItemToSlot(pCurrentSlot.pItem);
             }
@@ -87,5 +90,21 @@ public class UIManager : MonoBehaviour
         pCurrentTowerIndex = index;
         tower_buttons_[pCurrentTowerIndex].SetSelected(true);
         tower_inventory_ui_.SetupInventory(TowerManager.sSingleton.pTowers[pCurrentTowerIndex].pInventory);
+    }
+
+    public float GetCanvasScale()
+    {
+        return canvas_rect_.localScale.x;
+    }
+
+    public void ShowPanel(string title, string description)
+    {
+        if (pMode == UIMode.Standard)
+            description_panel_.ShowPanel(title, description);
+    }
+
+    public void HidePanel()
+    {
+        description_panel_.HidePanel();
     }
 }
