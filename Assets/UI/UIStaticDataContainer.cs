@@ -13,6 +13,10 @@ public enum ColorEnum
 public class UIStaticDataContainer : MonoBehaviour
 {
     public static UIStaticDataContainer sSingleton { get; private set; }
+    [SerializeField]
+    private List<ColorEnumPair> colors_;
+    [SerializeField]
+    private List<TowerColorEnumPair> tower_colors_;
 
     private void Awake()
     {
@@ -21,22 +25,34 @@ public class UIStaticDataContainer : MonoBehaviour
 
     public Color GetColor(ColorEnum color)
     {
-        switch (color)
+        for(int i = 0; i < colors_.Count; i++)
         {
-            case ColorEnum.NormalFrame: return normal_frame_color_;
-            case ColorEnum.HighlightFrame: return highlight_frame_color_;
-            case ColorEnum.SelectIcon: return select_color_;
-            case ColorEnum.NormalIcon: return normal_icon_color_;
-            default: return Color.white;
+            if (color == colors_[i].enum_)
+                return colors_[i].color_;
         }
+        return Color.white;
     }
+    public Color GetTowerColor(TowerColor color)
+    {
+        for (int i = 0; i < tower_colors_.Count; i++)
+        {
+            if (color == tower_colors_[i].enum_)
+                return tower_colors_[i].color_;
+        }
+        return Color.white;
+    }
+}
 
-    [SerializeField]
-    private Color normal_frame_color_;
-    [SerializeField]
-    private Color highlight_frame_color_;
-    [SerializeField]
-    private Color select_color_;
-    [SerializeField]
-    private Color normal_icon_color_;
+[System.Serializable]
+public class ColorEnumPair
+{
+    public ColorEnum enum_;
+    public Color color_;
+}
+
+[System.Serializable]
+public class TowerColorEnumPair
+{
+    public TowerColor enum_;
+    public Color color_;
 }
