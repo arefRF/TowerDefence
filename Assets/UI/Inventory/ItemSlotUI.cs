@@ -9,7 +9,7 @@ public class ItemSlotUI : MonoBehaviour
     [SerializeField]
     private Image frame_, icon_;
 
-    public enum SlotMode {Empty,Full,Draged}
+    public enum SlotMode { Empty, Full, Draged }
     public SlotMode pMode { get; private set; }
     public ItemBase pItem { get; private set; }
     public InventoryBase pInventory { get; private set; }
@@ -48,11 +48,14 @@ public class ItemSlotUI : MonoBehaviour
     {
         frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.HighlightFrame);
         UIManager.sSingleton.pActiveSlot = this;
+        if (pMode == SlotMode.Full)
+            UIManager.sSingleton.ShowPanel(pItem.pItemData.name_, pItem.pItemData.description_);
     }
     private void OnDehighlightDelegate(PointerEventData data)
     {
         frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
         UIManager.sSingleton.pActiveSlot = null;
+        UIManager.sSingleton.HidePanel();
     }
     private void OnDragDelegate(PointerEventData data)
     {
@@ -72,7 +75,7 @@ public class ItemSlotUI : MonoBehaviour
         icon_.enabled = true;
         pMode = SlotMode.Full;
     }
-    public void Setup(InventoryBase inventory,int index)
+    public void Setup(InventoryBase inventory, int index)
     {
         pInventory = inventory;
         pIndex = index;
