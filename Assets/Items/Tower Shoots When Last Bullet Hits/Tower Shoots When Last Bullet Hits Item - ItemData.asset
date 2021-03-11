@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ddd8d0a57660646aed22c737f7b574, type: 3}
   m_Name: Tower Shoots When Last Bullet Hits Item - ItemData
   m_EditorClassIdentifier: 
-  item_enum_: 4
-  icon_: {fileID: 21300000, guid: eb10cc533fa5e0f4cbb9f24f13d8424c, type: 3}
-  name_: More Bullets
-  description_: Tower Shoots More Bullets
+  item_enum_: 6
+  icon_: {fileID: 21300000, guid: 5295f9f6328fe284cb3a4b6f63c8c436, type: 3}
+  name_: Wait for it
+  description_: Tower Shoots when last bullet hits
   supported_order_: 0
   visual_modifier_list_: 
-  stats_:
-  - stat_enum_: 9
-    value_: 2
+  stats_: []

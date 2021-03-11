@@ -6503,6 +6503,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 574988233, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852750964, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852750964, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852750964, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852750964, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852750964, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853051390, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853051390, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853051390, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853051390, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1853051390, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 737993714580831865, guid: 6438d6e50bc24d54a8b6f7ce5c6053a3, type: 3}
       propertyPath: m_Name
       value: UI

@@ -43,8 +43,9 @@ public class StaticItemCreator : MonoBehaviour
             case ItemEnum.IncreaseBulletDamage: item = item_gameobject.AddComponent<IncreaseBulletDamageItem>(); break;
             case ItemEnum.CreateMoreBulletsAtEnd: item = item_gameobject.AddComponent<CreateMoreBulletsAtEndItem>(); break;
             case ItemEnum.IncreaseTowerDamageConstantlyForNextBullet: item = item_gameobject.AddComponent<IncreaseTowerDamageConstantlyItem>(); break;
-            case ItemEnum.TowerShootsMoreBullets: item = item_gameobject.AddComponent<TowerShootsMoreBulletsItem>();break;
-            case ItemEnum.ExplodeWhenHit: item = item_gameobject.AddComponent<ExplodeWhenHitItem>();break;
+            case ItemEnum.TowerShootsMoreBullets: item = item_gameobject.AddComponent<TowerShootsMoreBulletsItem>(); break;
+            case ItemEnum.ExplodeWhenHit: item = item_gameobject.AddComponent<ExplodeWhenHitItem>(); break;
+            case ItemEnum.TowerShootWhenLastBulletHits: item = item_gameobject.AddComponent<TowerShootsWhenLastBulletHitsItem>(); break;
         }
         item.SetData(item_data);
         return item;
