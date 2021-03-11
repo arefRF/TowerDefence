@@ -21,8 +21,8 @@ public class TowerBase : MonoBehaviour
 
     public event TowerPreAttackEventHandler PreShootStartCallback;
     public event TowerAttackEventHandler ShootStartCallback;
-    public TowerInventory pInventory { get; private set;}
-
+    public TowerInventory pInventory { get; private set; }
+    public TowerVisuals pVisuals { get; private set; }
     public void Start()
     {
         InitializeOnStart();
@@ -32,25 +32,26 @@ public class TowerBase : MonoBehaviour
     {
         attack_component_ = GetComponent<TowerAttackComponent>();
         sense_component_ = GetComponent<TowerSenseComponent>();
-        stat_component_ = GetComponent<StatComponent>();    
+        stat_component_ = GetComponent<StatComponent>();
         weapon_ = GetComponent<RangeWeapon>();
         health_component_ = GetComponent<TowerHealthComponent>();
         pInventory = GetComponent<TowerInventory>();
+        pVisuals = transform.parent.gameObject.GetComponentInChildren<TowerVisuals>();
         pInventory.SetTower(this);
         initial_position = transform.position;
         UndeployTower();
     }
-    
+
 
     public void InvokeShootStartEvent(ProjectileBase projectile)
     {
-        if(ShootStartCallback != null)
+        if (ShootStartCallback != null)
             ShootStartCallback.Invoke(projectile);
     }
 
     public void InvokePreShootStartEvent()
     {
-        if(PreShootStartCallback != null)
+        if (PreShootStartCallback != null)
             PreShootStartCallback.Invoke();
     }
 

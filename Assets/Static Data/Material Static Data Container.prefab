@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3756291236159545403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5364394319269616038}
+  - component: {fileID: 1664815553131549708}
+  m_Layer: 0
+  m_Name: Material Static Data Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5364394319269616038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756291236159545403}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 377.48523, y: 183.75984, z: 93.00096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1664815553131549708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3756291236159545403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1141aad4eb6eb948819151ae386eec5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tower_mat_sets_:
+  - color_: 0
+    materials_:
+    - {fileID: 2100000, guid: fcfaa372a12f39742a7cb9c6e43972d1, type: 2}
+    - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 2100000, guid: fcfaa372a12f39742a7cb9c6e43972d1, type: 2}
+  - color_: 1
+    materials_:
+    - {fileID: 2100000, guid: 3432ef4ff9eb8b946bbd4f58cf0dac2f, type: 2}
+    - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 2100000, guid: 3432ef4ff9eb8b946bbd4f58cf0dac2f, type: 2}
+  - color_: 3
+    materials_:
+    - {fileID: 2100000, guid: 243ba3ea1b93be74ba7ef791f2e8ad7f, type: 2}
+    - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 2100000, guid: 243ba3ea1b93be74ba7ef791f2e8ad7f, type: 2}
+  - color_: 2
+    materials_:
+    - {fileID: 2100000, guid: afc8a1e8cdcadaa40a66a4b31dc91d00, type: 2}
+    - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 2100000, guid: afc8a1e8cdcadaa40a66a4b31dc91d00, type: 2}
+  - color_: 4
+    materials_:
+    - {fileID: 2100000, guid: 45d8d1de10154144ab2bbc552a977305, type: 2}
+    - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 2100000, guid: 45d8d1de10154144ab2bbc552a977305, type: 2}
+  - color_: 5
+    materials_:
+    - {fileID: 2100000, guid: c30eb2c389c98a040a0265e9fc81947c, type: 2}
+    - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - {fileID: 2100000, guid: c30eb2c389c98a040a0265e9fc81947c, type: 2}

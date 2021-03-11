@@ -43,7 +43,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7578daf5ff9e242914c52e118bd347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal_frame_color_: {r: 0.4073158, g: 0.43479, b: 0.46226418, a: 1}
-  highlight_frame_color_: {r: 0.74311143, g: 0.7677821, b: 0.7924528, a: 1}
-  select_color_: {r: 0.8207547, g: 0.5872642, b: 0, a: 1}
-  normal_icon_color_: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+  colors_:
+  - enum_: 1
+    color_: {r: 0.40784314, g: 0.43529412, b: 0.4627451, a: 1}
+  - enum_: 2
+    color_: {r: 0.7411765, g: 0.76862746, b: 0.7921569, a: 1}
+  - enum_: 3
+    color_: {r: 0.81960785, g: 0.5882353, b: 0, a: 1}
+  - enum_: 4
+    color_: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+  tower_colors_:
+  - enum_: 0
+    color_: {r: 0.1915984, g: 0.1915984, b: 0.8679245, a: 1}
+  - enum_: 1
+    color_: {r: 1, g: 0, b: 0, a: 1}
+  - enum_: 2
+    color_: {r: 0.9433962, g: 0.7037505, b: 0.17265925, a: 1}
+  - enum_: 3
+    color_: {r: 0.5879807, g: 0.7169812, b: 0.27326453, a: 1}
+  - enum_: 4
+    color_: {r: 0.804541, g: 0.19215685, b: 0.8666667, a: 1}
+  - enum_: 5
+    color_: {r: 1, g: 0.51180494, b: 0, a: 1}

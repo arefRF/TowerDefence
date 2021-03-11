@@ -29,9 +29,8 @@ public class TowerButton : MonoBehaviour
         entry_dehighlight.callback.AddListener((data) => { OnDehighlightDelegate((PointerEventData)data); });
         trigger.triggers.Add(entry_dehighlight);
 
-        frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
         if (!is_selected_)
-            icon_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalIcon);
+            frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
     }
     private void OnPressDelegate(PointerEventData data)
     {
@@ -39,13 +38,17 @@ public class TowerButton : MonoBehaviour
     }
     private void OnHighlightDelegate(PointerEventData data)
     {
-        frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.HighlightFrame);
-        if (UIManager.sSingleton.pMode == UIManager.UIMode.Drag)
-            Select();
+        if (!is_selected_)
+        {
+            frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.HighlightFrame);
+            if (UIManager.sSingleton.pMode == UIManager.UIMode.Drag)
+                Select();
+        }
     }
     private void OnDehighlightDelegate(PointerEventData data)
     {
-        frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
+        if (!is_selected_)
+            frame_.color = UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
     }
 
     private void Select()
@@ -56,10 +59,11 @@ public class TowerButton : MonoBehaviour
     public void SetSelected(bool active)
     {
         is_selected_ = active;
-        icon_.color = active ? UIStaticDataContainer.sSingleton.GetColor(ColorEnum.SelectIcon) : UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalIcon);
+        frame_.color = active ? UIStaticDataContainer.sSingleton.GetColor(ColorEnum.SelectIcon) : UIStaticDataContainer.sSingleton.GetColor(ColorEnum.NormalFrame);
     }
     public void SetIndex(int index)
     {
         index_ = index;
+        icon_.color = UIStaticDataContainer.sSingleton.GetTowerColor(TowerManager.sSingleton.pTowers[index_].pVisuals.pColor);
     }
 }
