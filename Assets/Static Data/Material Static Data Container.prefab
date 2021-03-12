@@ -49,28 +49,34 @@ MonoBehaviour:
     - {fileID: 2100000, guid: fcfaa372a12f39742a7cb9c6e43972d1, type: 2}
     - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 2100000, guid: fcfaa372a12f39742a7cb9c6e43972d1, type: 2}
+    light_color_: {r: 0.107547104, g: 0.19854261, b: 1, a: 1}
   - color_: 1
     materials_:
     - {fileID: 2100000, guid: 3432ef4ff9eb8b946bbd4f58cf0dac2f, type: 2}
     - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 2100000, guid: 3432ef4ff9eb8b946bbd4f58cf0dac2f, type: 2}
+    light_color_: {r: 1, g: 0.107547104, b: 0.107547104, a: 1}
   - color_: 3
     materials_:
     - {fileID: 2100000, guid: 243ba3ea1b93be74ba7ef791f2e8ad7f, type: 2}
     - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 2100000, guid: 243ba3ea1b93be74ba7ef791f2e8ad7f, type: 2}
+    light_color_: {r: 0.08146882, g: 1, b: 0, a: 1}
   - color_: 2
     materials_:
     - {fileID: 2100000, guid: afc8a1e8cdcadaa40a66a4b31dc91d00, type: 2}
     - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 2100000, guid: afc8a1e8cdcadaa40a66a4b31dc91d00, type: 2}
+    light_color_: {r: 1, g: 0.9097158, b: 0, a: 1}
   - color_: 4
     materials_:
     - {fileID: 2100000, guid: 45d8d1de10154144ab2bbc552a977305, type: 2}
     - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 2100000, guid: 45d8d1de10154144ab2bbc552a977305, type: 2}
+    light_color_: {r: 0.8560982, g: 0, b: 1, a: 1}
   - color_: 5
     materials_:
     - {fileID: 2100000, guid: c30eb2c389c98a040a0265e9fc81947c, type: 2}
     - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - {fileID: 2100000, guid: c30eb2c389c98a040a0265e9fc81947c, type: 2}
+    light_color_: {r: 1, g: 0.3294807, b: 0, a: 1}

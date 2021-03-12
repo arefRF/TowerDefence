@@ -23,6 +23,7 @@ public class TowerBase : MonoBehaviour
     public event TowerAttackEventHandler ShootStartCallback;
     public TowerInventory pInventory { get; private set; }
     public TowerVisuals pVisuals { get; private set; }
+    public GameObject pProjectile { get; private set; }
     public void Start()
     {
         InitializeOnStart();
@@ -37,7 +38,9 @@ public class TowerBase : MonoBehaviour
         health_component_ = GetComponent<TowerHealthComponent>();
         pInventory = GetComponent<TowerInventory>();
         pVisuals = transform.parent.gameObject.GetComponentInChildren<TowerVisuals>();
+        pVisuals.pTower = this;
         pInventory.SetTower(this);
+        pProjectile = StaticDataContainer.sSingleton.GetProjectile(pVisuals.pColor);
         initial_position = transform.position;
         UndeployTower();
     }

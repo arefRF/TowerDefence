@@ -33,6 +33,7 @@ public class TowerMatSet
 {
     public TowerColor color_;
     public Material[] materials_;
+    public Color light_color_;
 }
 
 public enum TowerColor { Blue, Red, Yellow, Green, Purple, Orange }
