@@ -65,6 +65,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5061e1f18b3014c88a017d5f6ebe77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectiles_:
+  - color_: 0
+    projectile_: {fileID: 6560348709846677581, guid: de4e8f99fdcfc414a9f8407954e47f19, type: 3}
+  - color_: 3
+    projectile_: {fileID: 8941847000357265150, guid: e7e999e6df2bfad479fa1753c72c9529, type: 3}
+  - color_: 5
+    projectile_: {fileID: 133506568264000514, guid: 45ce1cf2a85e08546aba21e8ee57b94b, type: 3}
+  - color_: 4
+    projectile_: {fileID: 8393254826408779779, guid: 95f609582225e8b4c8e7d110036de651, type: 3}
+  - color_: 1
+    projectile_: {fileID: 5620076070559729415, guid: 336a7ffbee351e84db28254d8914b67b, type: 3}
+  - color_: 2
+    projectile_: {fileID: 2429766244002520570, guid: 41459b8f05b35fe41aea608dae73b38f, type: 3}
   projectile_prefab_: {fileID: 5887643317680509428, guid: de7fe8002b54e0f4cab0384573c03f66, type: 3}
   explosion_prefab_: {fileID: 2950779811843452071, guid: 1ca14dde7b1d907449e86aaa73d18250, type: 3}
   dark_aura_prefab_: {fileID: 7110420003510610359, guid: a81c1c7e3ee9a934cbd9780d74c30ee3, type: 3}

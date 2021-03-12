@@ -2978,7 +2978,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.9
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -7120,9 +7120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy_prefab_list_:
   - enemy_object_: {fileID: 573761462586553303, guid: e8941ad256f9e0f4fb24cd61d3ac34d6, type: 3}
-    chance_: 3
+    chance_: 50
   - enemy_object_: {fileID: 573761462586553303, guid: 281dd2bb0af94a448a04272997039bfe, type: 3}
-    chance_: 2
+    chance_: 20
   - enemy_object_: {fileID: 7866695329931283538, guid: fd24540b593514c42aa6bbdfdb8da6dc, type: 3}
     chance_: 1
   enemy_parent_: {fileID: 1838771764}
