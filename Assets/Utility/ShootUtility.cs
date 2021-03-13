@@ -11,9 +11,9 @@ public class ShootUtility
         direction.y = 1;
         direction = direction.normalized;
         var projectile = GameObject.Instantiate(tower.pProjectile, shoot_source.position, Quaternion.identity).GetComponent<ProjectileBase>();
-        tower.InvokeShootStartEvent(projectile);
         var stat = projectile.GetComponent<StatComponent>();
         stat.FindStat(StatEnum.Damage).value_ = damage;
+        tower.InvokeShootStartEvent(projectile);
         projectile.Shoot(target, tower, direction, order);
     }
 
