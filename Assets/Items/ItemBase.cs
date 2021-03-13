@@ -46,7 +46,10 @@ public class ItemBase : MonoBehaviour
         tower_ = null;
     }
     public virtual void SetDataOnTower() { }
-    public virtual void UnSetDataOnTower() { }
+    public virtual void UnSetDataOnTower() 
+    {
+        tower_.ShootStartCallback -= RegisterProjectileCallBacks;
+    }
     public virtual void RegisterProjectileCallBacks(ProjectileBase projectile)
     {
         Debug.Log("implement visual moddifier here");

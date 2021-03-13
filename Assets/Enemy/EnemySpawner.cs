@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
         current_interval_ -= Time.deltaTimeWithCeaseFire;
         if(current_interval_ <= 0)
         {
-            current_interval_ = spawn_interval_;
+            current_interval_ = spawn_interval_ / ProgressionManager.sSingleton.pSpawnRateMultiplier;
             SpawnEnemy();
         }
     }
@@ -43,7 +43,10 @@ public class EnemySpawner : MonoBehaviour
         int rand = Random.Range(0, spawner_point_.Count);
         var go = Instantiate(GetRandomEnemy(), spawner_point_[rand].transform.position, spawner_point_[rand].transform.rotation, enemy_parent_.transform);
         go.GetComponent<MoveTest>().destination_ = spawner_node_[rand];
-        EnemyManager.sSingleton.AddEnemyToList(go.GetComponent<EnemyBase>());
+        var enemy = go.GetComponent<EnemyBase>();
+        enemy.pStats.MultiplyStat(StatEnum.HP, ProgressionManager.sSingleton.pHPMultiplier);
+        EnemyManager.sSingleton.AddEnemyToList(enemy);
+        ProgressionManager.sSingleton.EnemySpawned();
     }
 
     private GameObject GetRandomEnemy()

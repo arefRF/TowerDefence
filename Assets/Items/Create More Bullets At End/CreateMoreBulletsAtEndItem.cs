@@ -17,6 +17,8 @@ public class CreateMoreBulletsAtEndItem : ItemBase
     {
         if(projectile.pOrder >= pItemData.supported_order_)
             return;
+        if(tower_ == null)
+            return;
         var count = pItemData.FindStat(StatEnum.Count).value_;
         for(int i=0; i < count; i++)
         {

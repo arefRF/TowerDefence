@@ -12,6 +12,7 @@ public class IncreaseBulletDamageItem : ItemBase
         base.AddToTower(tower);
         timer_id_dic = new Dictionary<int, int>();
     }
+
     public override void RegisterProjectileCallBacks(ProjectileBase projectile)
     {
         base.RegisterProjectileCallBacks(projectile);

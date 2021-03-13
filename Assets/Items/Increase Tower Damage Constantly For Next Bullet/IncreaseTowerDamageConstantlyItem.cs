@@ -15,11 +15,17 @@ public class IncreaseTowerDamageConstantlyItem : ItemBase
         last_shoot_time_ = Time.timeWithCeaseFire;
         interval_ = pItemData.FindStat(StatEnum.Interval).value_;
         damage_ = pItemData.FindStat(StatEnum.Damage).value_;
+        tower_.ShootStartCallback += IncreaseDamage;
+    }
+
+    public override void UnSetDataOnTower()
+    {
+        base.UnSetDataOnTower();
+        tower_.ShootStartCallback -= IncreaseDamage;
     }
     public override void RegisterProjectileCallBacks(ProjectileBase projectile)
     {
         base.RegisterProjectileCallBacks(projectile);
-        tower_.ShootStartCallback += IncreaseDamage;
     }
 
     // CALLBACKS //
@@ -28,5 +34,6 @@ public class IncreaseTowerDamageConstantlyItem : ItemBase
     {
         int interval_count = (int)((Time.timeWithCeaseFire - last_shoot_time_) / interval_);
         projectile.pStatComponent.MultiplyStat(StatEnum.Damage, damage_ * interval_count);
+        last_shoot_time_ = Time.timeWithCeaseFire;
     }
 }

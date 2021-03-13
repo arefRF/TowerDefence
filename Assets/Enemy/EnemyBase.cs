@@ -14,7 +14,7 @@ public class EnemyBase : MonoBehaviour
     public MoveTest pMoveComponent { get { return move_component_;} }
 
     public Delegate_NoArgument OnRelease;
-    void Start()
+    void Awake()
     {
         stats_ = GetComponent<StatComponent>();
         health_ = GetComponent<EnemyHealthComponent>();
