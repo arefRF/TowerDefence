@@ -37,8 +37,8 @@ public class TowerAttackComponent : MonoBehaviour
 
     public void UpdateState()
     {
-        time_to_next_attack_ -= Time.deltaTime;
-        if(time_to_next_attack_ <= 0)
+        time_to_next_attack_ -= Time.deltaTimeWithCeaseFire;
+        if (time_to_next_attack_ <= 0)
         {
             time_to_next_attack_ = stats_.FindStat(StatEnum.AttackTime).value_;
             if(can_shoot_)

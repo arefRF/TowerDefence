@@ -46,7 +46,7 @@ public class Timer : MonoBehaviour
     {
         id = counter;
         counter++;
-        var timer = new TimerInstance_TowerAttackEvent(action, Time.time, interval, call_count, id, projectile);
+        var timer = new TimerInstance_TowerAttackEvent(action, Time.timeWithCeaseFire, interval, call_count, id, projectile);
         sSingleton.timer_list_.Add(timer);
     }
 
@@ -54,7 +54,7 @@ public class Timer : MonoBehaviour
     {
         id = counter;
         counter++;
-        var timer = new TimerInstance_NoArgumentEvent(action, Time.time, interval, call_count, id);
+        var timer = new TimerInstance_NoArgumentEvent(action, Time.timeWithCeaseFire, interval, call_count, id);
         sSingleton.timer_list_.Add(timer);
     }
 
@@ -80,9 +80,9 @@ public class Timer : MonoBehaviour
         public void CheckInvoke(out bool remove_from_list)
         {
             remove_from_list = false;
-            if (last_invoke_time_ + interval_ < Time.time) 
+            if (last_invoke_time_ + interval_ < Time.timeWithCeaseFire) 
             {
-                last_invoke_time_ = Time.time;
+                last_invoke_time_ = Time.timeWithCeaseFire;
                 if(call_count_ > 0)
                     call_count_--;
                 Invoke();

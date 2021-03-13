@@ -33,5 +33,10 @@ public class InputFoundation : MonoBehaviour
         {
             UIManager.sSingleton.PointerUp();
         }
+
+        if (Input.GetKeyUp(KeyCode.Space)) 
+        {
+            Time.ChangeCeaseFire();
+        }
     }
 }

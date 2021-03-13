@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        current_interval_ -= Time.deltaTime;
+        current_interval_ -= Time.deltaTimeWithCeaseFire;
         if(current_interval_ <= 0)
         {
             current_interval_ = spawn_interval_;

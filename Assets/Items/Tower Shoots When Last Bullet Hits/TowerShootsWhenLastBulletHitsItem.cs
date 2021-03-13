@@ -16,11 +16,15 @@ public class TowerShootsWhenLastBulletHitsItem : ItemBase
     // CALLBACKS //
     private void OnShootStart(ProjectileBase projectile)
     {
+        if (projectile.pOrder > 0)
+            return;
         tower_.pAttackComponent.DisableAttack();
     }
 
     private void OnHit(ProjectileBase projectile) 
     {
+        if (projectile.pOrder > 0)
+            return;
         tower_.pAttackComponent.ForceReload();
     }
 }

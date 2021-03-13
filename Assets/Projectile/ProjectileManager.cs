@@ -23,8 +23,8 @@ namespace Hive.Projectile {
         }
         private void UpdateProjectilesMovement()
         {
-            var delta_time = Time.deltaTime;
-            for(int i = 0; i < active_projectiles_.Count; i++)
+            var delta_time = Time.deltaTimeWithCeaseFire;
+            for (int i = 0; i < active_projectiles_.Count; i++)
             {
                 if (active_projectiles_[i].UpdateMovement(delta_time))
                 {

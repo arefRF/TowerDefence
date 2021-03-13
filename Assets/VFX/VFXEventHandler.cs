@@ -11,13 +11,13 @@ public class VFXEventHandler : MonoBehaviour
     
     void Start()
     {
-        start_time_ = Time.time;
+        start_time_ = Time.timeWithCeaseFire;
     }
     void Update()
     {
         for(int i=0; i < events_list_.Count; i++)
         {
-            if(events_list_[i].pTime + start_time_ < Time.time)
+            if(events_list_[i].pTime + start_time_ < Time.timeWithCeaseFire)
             {
                 events_list_[i].InvokeEvent();
                 events_list_.RemoveAt(i);

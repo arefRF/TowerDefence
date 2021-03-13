@@ -12,7 +12,7 @@ public class IncreaseTowerDamageConstantlyItem : ItemBase
     public override void AddToTower(TowerBase tower)
     {
         base.AddToTower(tower);
-        last_shoot_time_ = Time.time;
+        last_shoot_time_ = Time.timeWithCeaseFire;
         interval_ = pItemData.FindStat(StatEnum.Interval).value_;
         damage_ = pItemData.FindStat(StatEnum.Damage).value_;
     }
@@ -26,7 +26,7 @@ public class IncreaseTowerDamageConstantlyItem : ItemBase
 
     public void IncreaseDamage(ProjectileBase projectile)
     {
-        int interval_count = (int)((Time.time - last_shoot_time_) / interval_);
+        int interval_count = (int)((Time.timeWithCeaseFire - last_shoot_time_) / interval_);
         projectile.pStatComponent.MultiplyStat(StatEnum.Damage, damage_ * interval_count);
     }
 }

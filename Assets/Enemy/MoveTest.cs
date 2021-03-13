@@ -8,7 +8,7 @@ public class MoveTest : MonoBehaviour
     [SerializeField]
     public NodePoint destination_;
     [SerializeField]
-    private float max_distance_;
+    private float speed_;
 
     public Delegate_NoArgument OnDestinationchanged;
 
@@ -34,7 +34,7 @@ public class MoveTest : MonoBehaviour
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, destination_.transform.position, max_distance_);
+            transform.position = Vector3.MoveTowards(transform.position, destination_.transform.position, speed_ * Time.deltaTimeWithCeaseFire);
         }
     }
 

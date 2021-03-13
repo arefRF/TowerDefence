@@ -45,7 +45,12 @@ public class Map : MonoBehaviour
             {
                 if(node_points_[i].number_ == g.nodes_[j].pNumber)
                 {
-                    if(node_points_[i].GetComponent<TileBase>().type_ != TileType.Goal)
+                    var tile_base = node_points_[i].GetComponent<TileBase>();
+                    if (tile_base.is_in_loop_)
+                    {
+                        node_points_[i].parent_ = MapTools.GetNeightborTile(tile_base, tile_base.road_exit_direction).GetComponent<NodePoint>();
+                    }
+                    else if(tile_base.type_ != TileType.Goal)
                         node_points_[i].parent_ = FindNode(g.nodes_[j].parent_.pNumber);
                 }
             }

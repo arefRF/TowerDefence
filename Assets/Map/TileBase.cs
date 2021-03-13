@@ -11,10 +11,12 @@ public class TileBase : MonoBehaviour
 
     public bool is_visited_ = false;
     public Direction road_exit_direction;
+    public bool is_in_loop_;
     public bool is_node;
     public int number_ = -1;
 
     public List<TileBase> edge_sink_list_ = new List<TileBase>();
+
 }
 
 public enum TileType
