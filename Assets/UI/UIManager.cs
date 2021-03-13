@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
     private TowerButton[] tower_buttons_;
     [SerializeField]
     private DescriptionPanel description_panel_;
+    [SerializeField]
+    private DamageNumberManager damage_number_manager_;
 
     public int pCurrentTowerIndex { get; private set; }
 
@@ -106,5 +108,10 @@ public class UIManager : MonoBehaviour
     public void HidePanel()
     {
         description_panel_.HidePanel();
+    }
+
+    public void CreateDamageNumber(Vector3 pos,int damage)
+    {
+        damage_number_manager_.CreateDamageNumber(pos, damage);
     }
 }
