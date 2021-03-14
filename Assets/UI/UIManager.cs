@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public UIMode pMode { get; private set; }
 
     public ItemSlotUI pCurrentSlot { get; private set; }
+    public ItemBase pCurrentItem { get; private set; }
     public ItemSlotUI pActiveSlot { get; set; }
     [SerializeField]
     private RectTransform canvas_rect_;
@@ -53,6 +54,7 @@ public class UIManager : MonoBehaviour
         drag_image_.sprite = slot.pItem.pItemData.icon_;
         drag_image_.enabled = true;
         pCurrentSlot = slot;
+        pCurrentItem = slot.pItem;
     }
     public void DeactiveDragMode()
     {
@@ -77,7 +79,7 @@ public class UIManager : MonoBehaviour
         {
             if (pActiveSlot != null)
             {
-                pActiveSlot.AddItemToSlot(pCurrentSlot.pItem);
+                pActiveSlot.AddItemToSlot(pCurrentItem);
             }
             else
             {

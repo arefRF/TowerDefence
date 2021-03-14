@@ -318,7 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frame_: {fileID: 4141323572538324257}
-  icon_: {fileID: 4895045042472024064}
+  icon_: {fileID: 3951301064341968883}
+  icon_in_: {fileID: 4895045042472024064}
 --- !u!114 &7940941776482455071
 MonoBehaviour:
   m_ObjectHideFlags: 0
