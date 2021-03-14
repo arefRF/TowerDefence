@@ -110,8 +110,18 @@ public class UIManager : MonoBehaviour
         description_panel_.HidePanel();
     }
 
-    public void CreateDamageNumber(Vector3 pos,int damage)
+    public void CreateDamageNumber(Vector3 pos, int damage)
     {
         damage_number_manager_.CreateDamageNumber(pos, damage);
+    }
+
+    //Cheat
+
+    public void DuplicateCurrentItem()
+    {
+        if (pActiveSlot != null)
+        {
+            pActiveSlot.pItem.pInvetory.AddItemToFreeSlot(StaticItemCreator.sSinglton.CreateItem(pActiveSlot.pItem.pItemData));
+        }
     }
 }
