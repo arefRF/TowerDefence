@@ -87,6 +87,11 @@ public class GameManager : MonoBehaviour
         if (game_mode_ == GameMode.UI)
             TowerManager.sSingleton.UnDeployTowerAt(tile);
     }
+
+    public void TriggerLosecondition()
+    {
+        Debug.LogError("you lost");
+    }
 }
 public enum GameMode
 {

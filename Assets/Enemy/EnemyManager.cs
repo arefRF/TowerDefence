@@ -25,7 +25,10 @@ public class EnemyManager : MonoBehaviour
     public void RemoveEnemyFromList(EnemyBase enemy)
     {
         if(enemies_.Contains(enemy))
+        {
+            AngerManager.sSingleton.EnemyDied(enemy);
             enemies_.Remove(enemy);
+        }
         else
             Debug.LogError("enemy not int the list! enemy: " + enemy);
     }
