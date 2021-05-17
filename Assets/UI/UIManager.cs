@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public UIMode pMode { get; private set; }
 
     public ItemSlotUI pCurrentSlot { get; private set; }
+    public ItemBase pCurrentItem { get; private set; }
     public ItemSlotUI pActiveSlot { get; set; }
     [SerializeField]
     private RectTransform canvas_rect_;
@@ -24,6 +25,8 @@ public class UIManager : MonoBehaviour
     private TowerButton[] tower_buttons_;
     [SerializeField]
     private DescriptionPanel description_panel_;
+    [SerializeField]
+    private DamageNumberManager damage_number_manager_;
 
     public int pCurrentTowerIndex { get; private set; }
 
@@ -51,6 +54,7 @@ public class UIManager : MonoBehaviour
         drag_image_.sprite = slot.pItem.pItemData.icon_;
         drag_image_.enabled = true;
         pCurrentSlot = slot;
+        pCurrentItem = slot.pItem;
     }
     public void DeactiveDragMode()
     {
@@ -75,7 +79,7 @@ public class UIManager : MonoBehaviour
         {
             if (pActiveSlot != null)
             {
-                pActiveSlot.AddItemToSlot(pCurrentSlot.pItem);
+                pActiveSlot.AddItemToSlot(pCurrentItem);
             }
             else
             {
@@ -106,5 +110,20 @@ public class UIManager : MonoBehaviour
     public void HidePanel()
     {
         description_panel_.HidePanel();
+    }
+
+    public void CreateDamageNumber(Vector3 pos, int damage)
+    {
+        damage_number_manager_.CreateDamageNumber(pos, damage);
+    }
+
+    //Cheat
+
+    public void DuplicateCurrentItem()
+    {
+        if (pActiveSlot != null)
+        {
+            pActiveSlot.pItem.pInvetory.AddItemToFreeSlot(StaticItemCreator.sSinglton.CreateItem(pActiveSlot.pItem.pItemData));
+        }
     }
 }

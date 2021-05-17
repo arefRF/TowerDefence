@@ -38,5 +38,13 @@ public class InputFoundation : MonoBehaviour
         {
             Time.ChangeCeaseFire();
         }
+
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                UIManager.sSingleton.DuplicateCurrentItem();
+            }
+        }
     }
 }
