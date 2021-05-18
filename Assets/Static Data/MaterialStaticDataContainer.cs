@@ -4,14 +4,38 @@ using UnityEngine;
 
 public class MaterialStaticDataContainer : MonoBehaviour
 {
-    public static MaterialStaticDataContainer sSingleton { get; private set; }
+    private static MaterialStaticDataContainer sPrivateSingleton;
+    private static MaterialStaticDataContainer sEditorPrivateSingleton;
+    public static MaterialStaticDataContainer sSingleton
+    {
+        get
+        {
+            if (Application.isPlaying)
+                return sPrivateSingleton;
+            else
+            {
+                if(sEditorPrivateSingleton == null)
+                {
+                    sEditorPrivateSingleton = FindObjectOfType<MaterialStaticDataContainer>();
+                }
+                return sEditorPrivateSingleton;
+            }
+        }
+    }
     [SerializeField]
     private TowerMatSet[] tower_mat_sets_;
     private List<TowerMatSet> available_tower_colors_;
 
+    [SerializeField]
+    private List<TileMatSet> tile_materials_;
+    public List<TileMatSet> pTileMaterials { get { return tile_materials_; } }
+
+    [SerializeField]
+    private bool bl;
+
     private void Awake()
     {
-        sSingleton = this;
+        sPrivateSingleton = this;
         available_tower_colors_ = new List<TowerMatSet>(tower_mat_sets_.Length);
         foreach(TowerMatSet set in tower_mat_sets_)
         {
@@ -37,4 +61,11 @@ public class TowerMatSet
 }
 
 public enum TowerColor { Blue, Red, Yellow, Green, Purple, Orange }
+
+[System.Serializable]
+public class TileMatSet 
+{
+    public Material material_;
+    public TileType type_;
+}
 

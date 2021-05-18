@@ -6,6 +6,8 @@ public class TileBase : MonoBehaviour
 {
     [SerializeField]
     public TileType type_;
+    [SerializeField]
+    private MeshRenderer mesh_;
 
     public Vector2Int position_;
 
@@ -17,14 +19,34 @@ public class TileBase : MonoBehaviour
 
     public List<TileBase> edge_sink_list_ = new List<TileBase>();
 
+    public void ChangeTileType(TileType type)
+    {
+        Material material = null;
+        foreach (var matset in MaterialStaticDataContainer.sSingleton.pTileMaterials)
+        {
+            if(matset.type_ == type)
+            {
+                material = matset.material_;
+                break;
+            }
+        }
+        type_ = type;
+        mesh_.material = material;
+    }
+
 }
 
 public enum TileType
 {
-    Road, Crystal, Ground, Goal, Spawner
+    Road, Crystal, Ground, Goal, Spawner, None
 }
 
 public enum Direction
 {
     Right,Left,Up,Down
+}
+
+public enum HexDirection
+{
+    UpLeft, UpRight, Left, Right, DownLeft, DownRight
 }

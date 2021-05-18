@@ -24,7 +24,7 @@ public class MoveTest : MonoBehaviour
     {
         if (DistanceTo(destination_.transform.position) <= 0)
         {
-            AngerManager.sSingleton.EnemyReachedNextDestination(enemy_base_);
+            //AngerManager.sSingleton.EnemyReachedNextDestination(enemy_base_);
             destination_ = destination_.parent_;
             if(destination_ == null)
             {
